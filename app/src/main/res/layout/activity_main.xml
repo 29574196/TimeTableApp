@@ -91,7 +91,7 @@
                    android:layout_height="wrap_content"
                    android:textSize="15dp"
                    android:textColor="@color/white"
-                   android:text="Password:"
+                   android:text="Password"
                    android:textAllCaps="true"
                    android:fontFamily="sans-serif-medium"/>
 
