@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         relative_lay1 = (RelativeLayout) findViewById(R.id.relative_lay1);
         relative_lay2 = (RelativeLayout) findViewById(R.id.relative_lay2);
 
-        relative_handler.postDelayed(runnable,1000);//will appear after 2 seconds
+        relative_handler.postDelayed(runnable,5000);//will appear after 5 seconds
 
     }
 }
