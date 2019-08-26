@@ -130,6 +130,14 @@
             android:paddingLeft="70dp"
             android:paddingRight="70dp"/>
 
+         <Button
+             android:id="@+id/btnTry"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_Login"
+            android:text="Trying"
+            android:layout_marginTop="30dp"/>
+
 
       </RelativeLayout>
 

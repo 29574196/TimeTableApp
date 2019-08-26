@@ -12,9 +12,9 @@ import android.widget.RelativeLayout;
 
 public class MainActivity extends AppCompatActivity {
     RelativeLayout relative_lay1,relative_lay2; //declaring relative layouts
-    private Button btn_login;
+    private Button btn_login,trying;
     private EditText user,password;
-    private int count =3;
+    private int count =5;
     Handler relative_handler = new Handler();
     Runnable runnable = new Runnable() {
         @Override
@@ -22,8 +22,12 @@ public class MainActivity extends AppCompatActivity {
             relative_lay1.setVisibility(View.VISIBLE); //making first layout visible when first loaded
             relative_lay2.setVisibility(View.VISIBLE);//making second layout visible when first loaded
 
+
+
         }
     };
+
+    private Intent second;
 
 
     @Override
@@ -36,25 +40,37 @@ public class MainActivity extends AppCompatActivity {
         btn_login = (Button) findViewById(R.id.btn_Login);
         user = (EditText) findViewById(R.id.usr_EditText);
         password = (EditText) findViewById(R.id.pass_EditText);
+        trying = (Button) findViewById(R.id.btnTry);
 
-        relative_handler.postDelayed(runnable,5000);//will appear after 5 seconds
+        relative_handler.postDelayed(runnable,2000);//will appear after 5 seconds
 
 
 
-        btn_login.setOnClickListener(new View.OnClickListener() {
+        trying.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                login_Seq(user.getText().toString(),password.getText().toString());//Yet to use database for this
+                second= new Intent(MainActivity.this, FrontPage.class);
 
             }
         });
+
+        /*btn_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btn_login.setEnabled(true);
+
+                Intent second_PageIntent = new Intent(MainActivity.this, FrontPage.class);
+
+                //login_Seq(user.getText().toString(),password.getText().toString());//Yet to use database for this
+
+            }
+        });*/
 
 
 
 
     }
-    private void login_Seq(String userN,String userP) //Yet to add back for username and password
+    /*private void login_Seq(String userN,String userP) //Yet to add back for username and password
     {
         if((userN == "Student") && (userP == "1234"))
         {
@@ -67,8 +83,8 @@ public class MainActivity extends AppCompatActivity {
 
             if(count == 0)
             {
-                btn_login.setEnabled(false);
+                //btn_login.setEnabled(false);
             }
         }
-    }
+    }*/
 }
