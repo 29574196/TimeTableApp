@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class FrontPage extends AppCompatActivity {
-    private TextView date;
+    private TextView txtDate;
     private Button btnGoCalendar;
 
 
@@ -18,7 +18,10 @@ public class FrontPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_front_page);
 
-        date = (TextView) findViewById(R.id.txtDate);
+        Intent incoming_Date_intent = getIntent();
+        String date = incoming_Date_intent.getStringExtra("date");
+
+        txtDate = (TextView) findViewById(R.id.txtDate);
         btnGoCalendar = (Button) findViewById(R.id.btnCal);
 
         btnGoCalendar.setOnClickListener(new View.OnClickListener() {

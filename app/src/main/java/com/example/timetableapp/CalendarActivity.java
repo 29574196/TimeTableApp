@@ -3,6 +3,7 @@ package com.example.timetableapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.nfc.Tag;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,8 +23,12 @@ public class CalendarActivity extends AppCompatActivity {
        calView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
            @Override
            public void onSelectedDayChange(@NonNull CalendarView calendarView, int i, int i1, int i2) {
-               String date = i + "/" +i1 + "/" + i2;
-               Log.d(TAG, "onSelectedDayChange: date:"+ date );
+               String date = (i1 +1) + "/" +i2 + "/" + i;
+               Log.d(TAG, "onSelectedDayChange: mm/dd/yyyy:"+ date );
+
+               Intent date_intent = new Intent(CalendarActivity.this,FrontPage.class);
+               date_intent.putExtra("date",date);
+               startActivity(date_intent);
            }
        });
 
