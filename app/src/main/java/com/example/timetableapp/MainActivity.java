@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     RelativeLayout relative_lay1,relative_lay2; //declaring relative layouts
     private Button btn_login;
     private EditText user,password;
+    private int count =3;
     Handler relative_handler = new Handler();
     Runnable runnable = new Runnable() {
         @Override
@@ -38,12 +39,36 @@ public class MainActivity extends AppCompatActivity {
 
         relative_handler.postDelayed(runnable,5000);//will appear after 5 seconds
 
+
+
+        btn_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                login_Seq(user.getText().toString(),password.getText().toString());//Yet to use database for this
+
+            }
+        });
+
+
+
+
     }
-    private void login_Seq(String userN,String userP)
+    private void login_Seq(String userN,String userP) //Yet to add back for username and password
     {
         if((userN == "Student") && (userP == "1234"))
         {
-            Intent second_PageIntent = new Intent(MainActivity.this, FrontPage.class);
+            Intent second_PageIntent = new Intent(MainActivity.this, FrontPage.class); //move from login page to front page
+            startActivity(second_PageIntent);
+        }
+        else
+        {
+            count--;
+
+            if(count == 0)
+            {
+                btn_login.setEnabled(false);
+            }
         }
     }
 }
