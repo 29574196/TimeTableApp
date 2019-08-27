@@ -73,8 +73,7 @@
                   android:textColor="@color/white"
                   android:fontFamily="sans-serif-medium"
                   android:paddingLeft="15dp"
-                  android:paddingRight="15dp"
-                  />
+                  android:paddingRight="15dp" />
 
             </LinearLayout>
 
@@ -130,19 +129,12 @@
             android:paddingLeft="70dp"
             android:paddingRight="70dp"/>
 
-         <Button
-             android:id="@+id/btnTry"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-            android:layout_below="@+id/btn_Login"
-            android:text="Trying"
-            android:layout_marginTop="30dp"/>
 
 
       </RelativeLayout>
 
-
    </RelativeLayout>
+
    <RelativeLayout
        android:id="@+id/relative_lay2"
        android:layout_width="match_parent"
