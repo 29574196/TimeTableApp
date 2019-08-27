@@ -24,6 +24,8 @@ public class FrontPage extends AppCompatActivity {
         txtDate = (TextView) findViewById(R.id.txtDate);
         btnGoCalendar = (Button) findViewById(R.id.btnCal);
 
+
+
         btnGoCalendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

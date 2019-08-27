@@ -44,12 +44,12 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        /*btn_login.setOnClickListener(new View.OnClickListener() {
+        btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 second= new Intent(MainActivity.this, FrontPage.class);
             }
-        });*/
+        });
 
        /* btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,17 +64,12 @@ public class MainActivity extends AppCompatActivity {
         });*/
 
     }
-    //Trying sign up click
-    /*public void signUp()
-    {
-        Intent second_PageIntent = new Intent(MainActivity.this, FrontPage.class); //move from login page to front page
-        startActivity(second_PageIntent);
-    }*/
-    /*private void login_Seq() //Yet to add back for username and password
+
+    private void login_Seq() //Yet to add back for username and password
     {
         String userN = user.getText().toString();
         String userP = password.getText().toString();
-        if((userN == "Student") && (userP == "1234"))
+        if((userN.equals("Stduent")) && (userP.equals("1234") ))
         {
             Intent second_PageIntent = new Intent(MainActivity.this, FrontPage.class); //move from login page to front page
             startActivity(second);
@@ -88,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 btn_login.setEnabled(false);
             }
         }
-    }*/
+    }
 
 
 }
