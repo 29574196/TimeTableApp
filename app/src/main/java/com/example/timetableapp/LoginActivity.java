@@ -21,14 +21,14 @@ public class LoginActivity extends AppCompatActivity{
     private int counter = 3;
     private Intent second;
 
-    /*Handler relative_handler = new Handler();
+    Handler relative_handler = new Handler();
     Runnable runnable = new Runnable() {
         @Override
         public void run() {
             relative_lay1.setVisibility(View.VISIBLE); //making first layout visible when first loaded
             relative_lay2.setVisibility(View.VISIBLE);//making second layout visible when first loaded
         }
-    };*/
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +41,9 @@ public class LoginActivity extends AppCompatActivity{
         user = (EditText) findViewById(R.id.usr_EditText);
         password = (EditText) findViewById(R.id.pass_EditText);
         login_status = false;
+
+
+        relative_handler.postDelayed(runnable,2000);//will appear after 5 seconds
 
 
         //Working login with hard coded information
