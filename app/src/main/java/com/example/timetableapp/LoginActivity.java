@@ -38,7 +38,7 @@ public class LoginActivity extends AppCompatActivity{
         relative_lay1 = (RelativeLayout) findViewById(R.id.relative_lay1);
         relative_lay2 = (RelativeLayout) findViewById(R.id.relative_lay2);
         btn_login = (Button) findViewById(R.id.btn_Login);
-        btn_SignUp = (Button) findViewById((R.id.btn_SignUp);
+        btn_SignUp = (Button) findViewById(R.id.btn_SignUp);
         user = (EditText) findViewById(R.id.usr_EditText);
         password = (EditText) findViewById(R.id.pass_EditText);
         login_status = false;
