@@ -318,6 +318,82 @@
 
 
 
+        ///////////// Thursday TextViews /////////////////////
+        <TableRow>
+
+            <TextView
+                android:layout_width="35dp"
+                android:layout_height="45dp"
+                android:text="thu"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:textAlignment="center"
+                android:gravity="center"
+
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="itrw325"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textAllCaps="true"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="itrw324"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textAllCaps="true"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="11"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textAllCaps="true"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="7b"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textAllCaps="true"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="5a"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textAllCaps="true"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="5b"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textAllCaps="true"
+                />
+
+
+        </TableRow>
+        /////////////// Enf of Thursday time zone///////////
+
+
+
     </TableLayout>
 
 
