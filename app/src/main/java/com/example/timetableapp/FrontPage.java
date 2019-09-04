@@ -21,18 +21,11 @@ public class FrontPage extends AppCompatActivity {
         Intent incoming_Date_intent = getIntent();
         String date = incoming_Date_intent.getStringExtra("date");
 
-        txtDate = (TextView) findViewById(R.id.txtDate);
-        btnGoCalendar = (Button) findViewById(R.id.btnCal);
 
-        txtDate.setText("Choose Date: " + " " +date);
 
-        btnGoCalendar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(FrontPage.this, CalendarActivity.class);
-                startActivity(intent);
-            }
-        });
+
+
+
 
     }
 }
