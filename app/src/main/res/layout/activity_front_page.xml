@@ -16,7 +16,71 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        //////////////// Time ZOne layout/////////////////////
+        <TableRow>
 
+            <TextView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:text="  "
+                android:textStyle="bold"
+
+                android:gravity="center"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="07:30"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="09:30"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="11:00"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="13:00"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="14:30"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="16:00"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center"
+                />
+
+
+        </TableRow>
+        ///////////// End of Time Zone /////////////////////
 
 
 
