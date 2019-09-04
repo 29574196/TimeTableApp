@@ -242,6 +242,82 @@
 
 
 
+        ///////////// Wednesday TextViews /////////////////////
+        <TableRow>
+
+            <TextView
+                android:layout_width="35dp"
+                android:layout_height="60dp"
+                android:text="wed"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:textAlignment="center"
+                android:gravity="center"
+
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="itrw322"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textAllCaps="true"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="itrw321"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textAllCaps="true"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="3a"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textAllCaps="true"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="itrw325"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textAllCaps="true"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="4a"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textAllCaps="true"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="4b"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textAllCaps="true"
+                />
+
+
+        </TableRow>
+        /////////////// Enf of Wednesday time zone/////////
+
+
+
     </TableLayout>
 
 
