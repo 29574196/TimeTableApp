@@ -84,6 +84,85 @@
 
 
 
+
+        ///////////// Monday TextViews /////////////////////
+        <TableRow>
+
+            <TextView
+                android:layout_width="35dp"
+                android:layout_height="45dp"
+                android:text="MON"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:textAlignment="center"
+                android:gravity="center"
+
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="5a"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textAllCaps="true"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="4b"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textAllCaps="true"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="itrw321"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textAllCaps="true"
+                android:background="#00fa9a"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="10"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textAllCaps="true"
+
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="itrw325"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textAllCaps="true"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="itrw325"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textAllCaps="true"
+                />
+
+
+        </TableRow>
+        /////////////// Enf of monday time zone//////
+
+
+
     </TableLayout>
 
 
