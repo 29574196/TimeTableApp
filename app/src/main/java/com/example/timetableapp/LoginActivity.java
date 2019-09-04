@@ -81,13 +81,13 @@ public class LoginActivity extends AppCompatActivity{
 
                 }
             });
-
+        /*
         btn_SignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent signUp_intent = new Intent(LoginActivity.this,SignupActivity.class);
+
             }
-        });
+        });*/
 
 
     }
