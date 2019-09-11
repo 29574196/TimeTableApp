@@ -33,6 +33,30 @@ app.post("/signup",(req,res)=>{
 
 })
 
+//Login with user password and student number
+app.get("/login/:username/:id",(req,res)=> {
+
+    const connection = mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: 'Timetable@324',
+        database: 'timetable'
+    })
+
+    const studentNo = req.params.username
+    const studentPassword = req.params.id
+    const queryString = "SELECT * FROM user where student_No = ? AND user_Password = ?"
+
+    connection.query(queryString,[studentNo,studentPassword],(err,rows,fields)=>{
+        if(err){
+            console.log("failed to retrieve user: "+ err)
+            res.sendStatus(500)
+            return
+        }
+        console.log("fetched users successfully")
+        res.json(rows)
+    })
+})
  
 app.listen(3000,()=>{
     console.log("server is live on 3000")
