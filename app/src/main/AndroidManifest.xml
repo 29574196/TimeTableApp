@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".CalendarActivity" />
         <activity android:name=".FrontPage" />
         <activity android:name=".LoginActivity" />
         <!--

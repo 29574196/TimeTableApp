@@ -6,6 +6,11 @@
         android:icon="@drawable/ic_dashboard"/>
 
 
+    <item android:id="@+id/navDaily"
+        android:title="Daily View"
+        android:icon="@drawable/ic_weekly_view"/>
+
+
     <item
         android:id="@+id/navModule"
         android:title="Add Module"
