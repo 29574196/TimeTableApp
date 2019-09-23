@@ -34,7 +34,7 @@ app.post("/signup",(req,res)=>{
 })
 
 //Login with user password and student number
-app.get("/login/:username/:id",(req,res)=> {
+app.get("/login",(req,res)=> {
 
     const connection = mysql.createConnection({
         host: 'localhost',
@@ -43,8 +43,8 @@ app.get("/login/:username/:id",(req,res)=> {
         database: 'timetable'
     })
 
-    const studentNo = req.params.username
-    const studentPassword = req.params.id
+    const studentNo = req.body.username
+    const studentPassword = req.body.password
     const queryString = "SELECT * FROM user where student_No = ? AND user_Password = ?"
 
     connection.query(queryString,[studentNo,studentPassword],(err,rows,fields)=>{
