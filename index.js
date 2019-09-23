@@ -17,16 +17,25 @@ var connection = mysql.createConnection({
 //Creating new user
 app.post("/signup",(req,res)=>{
 
-    const studentNo = req.body.add_student
-    const studentEmail = req.body.add_email
-    const studentPassword = req.body.add_password
+    var studentNo = req.body.add_student
+    var studentEmail = req.body.add_email
+    var studentPassword = req.body.add_password
 
-    const queryString = "INSERT INTO user (student_no,user_email,user_password) VALUES (?,?,?)"
+    var queryString = "SELECT * from user where student_no = ?"
+    //var queryString = "INSERT INTO user (student_no,user_email,user_password) VALUES (?,?,?)"
     connection.query(queryString,[studentNo,studentEmail,studentPassword],(err,results,fields)=>{
         if(err){
             console.log("failed to insert new user "+ err)
             res.sendStatus(500)
             return
+        }
+        if(results)
+        {
+            res.json('Duplicate student number');
+            res.end() 
+        }else
+        {
+            //queryString = "SELECT * from user where user_email = ?"
         }
 
         console.log("new user created")
@@ -48,7 +57,7 @@ app.get("/login",(req,res)=> {
             res.sendStatus(500)
             return
         }
-        console.log("fetched users successfully")
+        console.log("fetched user successfully")
         res.json(rows)
     })
 })
