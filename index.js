@@ -30,7 +30,7 @@ app.post("/signup",(req,res)=>{
             res.sendStatus(500)
            return
         }
-        if(results)
+        if(results && results.length)
         {
             res.json('Duplicate student number')
             console.log("duplicate student number")
