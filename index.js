@@ -5,15 +5,17 @@ const bodyParser = require('body-parser')
 
 //allows access to data passed from app
 app.use(bodyParser.urlencoded({extended: false}))
+//Global connection string
+var connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'Timetable@324',
+    database: 'timetable'
+})
+
 
 //Creating new user
 app.post("/signup",(req,res)=>{
-    const connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: 'Timetable@324',
-        database: 'timetable'
-    })
 
     const studentNo = req.body.add_student
     const studentEmail = req.body.add_email
@@ -35,13 +37,6 @@ app.post("/signup",(req,res)=>{
 
 //Login with user password and student number
 app.get("/login",(req,res)=> {
-
-    const connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: 'Timetable@324',
-        database: 'timetable'
-    })
 
     const studentNo = req.body.username
     const studentPassword = req.body.password
