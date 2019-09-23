@@ -45,7 +45,7 @@ app.post("/signup",(req,res)=>{
                     res.sendStatus(500)
                     return  
                 }
-                if(results)
+                if(results && results.length)
                 {
                     res.json('Duplicate email address')
                     console.log("duplicate email")
