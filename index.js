@@ -52,8 +52,17 @@ app.post("/signup",(req,res)=>{
                     return
                 }else
                 {
-                    console.log("new user created")
-                    res.end()
+                    queryString = "INSERT INTO user (student_no,user_email,user_password) VALUES (?,?,?)"
+                    connection.query(queryString,[studentNo,studentEmail,studentPassword],(err,results,fields)=>{
+                        if(err){
+                            console.log("failed to insert new user "+ err)
+                            res.sendStatus(500)
+                            return  
+                        }
+                        console.log("new user created")
+                        res.json('User created successfully')
+                        res.end()
+                    })  
                 }   
             })
         }
