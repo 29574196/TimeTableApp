@@ -20,28 +20,44 @@ app.post("/signup",(req,res)=>{
     var studentNo = req.body.add_student
     var studentEmail = req.body.add_email
     var studentPassword = req.body.add_password
+    //var length = studentNo.length
 
     var queryString = "SELECT * from user where student_no = ?"
     //var queryString = "INSERT INTO user (student_no,user_email,user_password) VALUES (?,?,?)"
-    connection.query(queryString,[studentNo,studentEmail,studentPassword],(err,results,fields)=>{
+    connection.query(queryString,[studentNo],(err,results,fields)=>{
         if(err){
             console.log("failed to insert new user "+ err)
             res.sendStatus(500)
-            return
+           return
         }
         if(results)
         {
-            res.json('Duplicate student number');
-            res.end() 
+            res.json('Duplicate student number')
+            console.log("duplicate student number")
+            return 
         }else
         {
-            //queryString = "SELECT * from user where user_email = ?"
+            //Checking email unique
+            queryString = "SELECT * from user where user_email = ?"
+            connection.query(queryString,[studentEmail],(err,results,fields)=>{
+                if(err){
+                    console.log("failed to insert new user "+ err)
+                    res.sendStatus(500)
+                    return  
+                }
+                if(results)
+                {
+                    res.json('Duplicate email address')
+                    console.log("duplicate email")
+                    return
+                }else
+                {
+                    console.log("new user created")
+                    res.end()
+                }   
+            })
         }
-
-        console.log("new user created")
-        res.end()
     })
-
 })
 
 //Login with user password and student number
