@@ -13,4 +13,12 @@ public interface INodeJS {
                 @Field("add_password") String password
         );
 
+        @POST("signup")
+        @FormUrlEncoded
+        Observable <String> userLogin(
+                @Field("add_student") String student,
+                @Field("add_password") String password,
+                @Field("add_email") String email
+        );
+
 }
