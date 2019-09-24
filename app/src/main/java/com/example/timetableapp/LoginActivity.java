@@ -14,29 +14,22 @@ import androidx.appcompat.app.AppCompatActivity;
 public class LoginActivity extends AppCompatActivity{
 
 
-    RelativeLayout relative_lay1,relative_lay2; //declaring relative layouts
+
     private Button btn_login,btn_SignUp;
     private EditText user,password;
     private boolean login_status;
     private int counter = 3;
     private Intent second;
 
-    Handler relative_handler = new Handler();
-    Runnable runnable = new Runnable() {
-        @Override
-        public void run() {
-            relative_lay1.setVisibility(View.VISIBLE); //making first layout visible when first loaded
-            relative_lay2.setVisibility(View.VISIBLE);//making second layout visible when first loaded
-        }
-    };
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        relative_lay1 = (RelativeLayout) findViewById(R.id.relative_lay1);
-        relative_lay2 = (RelativeLayout) findViewById(R.id.relative_lay2);
+
         btn_login = (Button) findViewById(R.id.btn_Login);
         btn_SignUp = (Button) findViewById(R.id.btn_SignUp);
         user = (EditText) findViewById(R.id.usr_EditText);
@@ -44,7 +37,7 @@ public class LoginActivity extends AppCompatActivity{
         login_status = false;
 
 
-        relative_handler.postDelayed(runnable,2000);//will appear after 5 seconds
+
 
 
         //Working login with hard coded information
@@ -93,6 +86,7 @@ public class LoginActivity extends AppCompatActivity{
     }
 
 
-
-
+    public void button_registerForm(View view) {
+        startActivity(new Intent(getApplicationContext(),SignUp.class));
+    }
 }
