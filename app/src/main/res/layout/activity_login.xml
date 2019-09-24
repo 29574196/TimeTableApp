@@ -10,7 +10,9 @@
     android:padding="30dp"
     tools:context=".LoginActivity">
 
-
+<!--<ScrollView android:id="@+id/scollerLogin"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">-->
 
     <ImageView
         android:layout_width="match_parent"
@@ -45,12 +47,12 @@
         android:layout_height="wrap_content"
         android:focusable="true"
         android:id="@+id/pass_EditText"
-        android:focusableInTouchMode="true">
+        android:focusableInTouchMode="true"
+        android:hint="Password:">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password:"
             android:ems="10"
             android:inputType="text"
             android:textSize="20sp"/>
@@ -72,6 +74,7 @@
         android:background="@drawable/button_bg"
         android:textColor="@color/white"
         android:fontFamily="sans-serif-medium"
+        android:onClick="login"
         android:paddingLeft="70dp"
         android:paddingRight="70dp"/>
 
@@ -92,5 +95,5 @@
         android:paddingLeft="70dp"
         android:paddingRight="70dp"/>
 
-
+<!--</ScrollView>-->
 </LinearLayout>

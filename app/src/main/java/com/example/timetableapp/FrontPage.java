@@ -24,18 +24,13 @@ public class FrontPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_front_page);
 
-        mDrawerlayout = (DrawerLayout) findViewById(R.id.navDrawerLayout);
+       mDrawerlayout = (DrawerLayout) findViewById(R.id.navDrawerLayout);
         mToggle = new ActionBarDrawerToggle(this,mDrawerlayout,R.string.open,R.string.close);
         mDrawerlayout.addDrawerListener(mToggle);
 
         mToggle.syncState();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
-
-
-
-
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       //getSupportActionBar().setHomeButtonEnabled(true);
 
     }
 
