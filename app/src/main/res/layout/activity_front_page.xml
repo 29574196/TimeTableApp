@@ -25,7 +25,7 @@
                 android:layout_height="30dp"
                 android:text=" "
                 android:textStyle="bold"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:gravity="center"
                 />
 
@@ -35,7 +35,7 @@
                 android:text="07:30"
                 android:textStyle="bold"
                 android:layout_weight="1"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:gravity="center"
                 />
 
@@ -45,7 +45,7 @@
                 android:text="09:30"
                 android:textStyle="bold"
                 android:layout_weight="1"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:gravity="center"
                 />
             <TextView
@@ -54,7 +54,7 @@
                 android:text="11:00"
                 android:textStyle="bold"
                 android:layout_weight="1"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:gravity="center"
                 />
             <TextView
@@ -63,7 +63,7 @@
                 android:text="13:00"
                 android:textStyle="bold"
                 android:layout_weight="1"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:gravity="center"
                 />
             <TextView
@@ -72,7 +72,7 @@
                 android:text="14:30"
                 android:textStyle="bold"
                 android:layout_weight="1"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:gravity="center"
                 />
             <TextView
@@ -81,7 +81,7 @@
                 android:text="16:00"
                 android:textStyle="bold"
                 android:layout_weight="1"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:gravity="center"
                 />
 
@@ -101,7 +101,7 @@
                 android:text="MON"
                 android:textStyle="bold"
                 android:textAllCaps="true"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:textAlignment="center"
                 android:gravity="center"
 
@@ -114,7 +114,7 @@
                 android:textStyle="bold"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:textAllCaps="true"
                 />
 
@@ -125,7 +125,7 @@
                 android:textStyle="bold"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:textAllCaps="true"
                 />
             <TextView
@@ -134,7 +134,7 @@
                 android:text="itrw321"
                 android:textStyle="bold"
                 android:layout_weight="1"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:gravity="center"
                 android:textAllCaps="true"
 
@@ -146,7 +146,7 @@
                 android:textStyle="bold"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:textAllCaps="true"
 
                 />
@@ -157,7 +157,7 @@
                 android:textStyle="bold"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:textAllCaps="true"
                 />
             <TextView
@@ -166,7 +166,7 @@
                 android:text="itrw325"
                 android:textStyle="bold"
                 android:layout_weight="1"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:gravity="center"
                 android:textAllCaps="true"
                 />
@@ -187,7 +187,7 @@
                 android:layout_height="30dp"
                 android:text="Tue"
                 android:textStyle="bold"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:textAllCaps="true"
                 android:textAlignment="center"
                 android:gravity="center"
@@ -200,7 +200,7 @@
                 android:text="3b"
                 android:textStyle="bold"
                 android:layout_weight="1"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:gravity="center"
                 android:textAllCaps="true"
                 />
@@ -212,7 +212,7 @@
                 android:textStyle="bold"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:textAllCaps="true"
                 />
             <TextView
@@ -221,7 +221,7 @@
                 android:text="7a"
                 android:textStyle="bold"
                 android:layout_weight="1"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:gravity="center"
                 android:textAllCaps="true"
                 />
@@ -231,7 +231,7 @@
                 android:text="5b"
                 android:textStyle="bold"
                 android:layout_weight="1"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:gravity="center"
                 android:textAllCaps="true"
                 />
@@ -242,7 +242,7 @@
                 android:textStyle="bold"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:textAllCaps="true"
 
                 />
@@ -252,7 +252,7 @@
                 android:text="itrw324"
                 android:textStyle="bold"
                 android:layout_weight="1"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:gravity="center"
                 android:textAllCaps="true"
                 />
@@ -273,7 +273,7 @@
                 android:textStyle="bold"
                 android:textAllCaps="true"
                 android:textAlignment="center"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:gravity="center"
 
                 />
@@ -283,7 +283,7 @@
                 android:layout_height="match_parent"
                 android:text="itrw322"
                 android:textStyle="bold"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:textAllCaps="true"
@@ -295,7 +295,7 @@
                 android:text="itrw321"
                 android:textStyle="bold"
                 android:layout_weight="1"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:gravity="center"
                 android:textAllCaps="true"
                 />
@@ -306,7 +306,7 @@
                 android:textStyle="bold"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:textAllCaps="true"
                 />
             <TextView
@@ -315,7 +315,7 @@
                 android:text="itrw325"
                 android:textStyle="bold"
                 android:layout_weight="1"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:gravity="center"
                 android:textAllCaps="true"
                 />
@@ -326,7 +326,7 @@
                 android:textStyle="bold"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:textAllCaps="true"
                 />
             <TextView
@@ -336,7 +336,7 @@
                 android:textStyle="bold"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:textAllCaps="true"
                 />
 
@@ -355,7 +355,7 @@
                 android:text="thu"
                 android:textStyle="bold"
                 android:textAllCaps="true"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:textAlignment="center"
                 android:gravity="center"
 
@@ -367,7 +367,7 @@
                 android:text="itrw325"
                 android:textStyle="bold"
                 android:layout_weight="1"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:gravity="center"
                 android:textAllCaps="true"
                 />
@@ -379,7 +379,7 @@
                 android:textStyle="bold"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:textAllCaps="true"
                 />
             <TextView
@@ -388,7 +388,7 @@
                 android:text="11"
                 android:textStyle="bold"
                 android:layout_weight="1"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:gravity="center"
                 android:textAllCaps="true"
                 />
@@ -399,7 +399,7 @@
                 android:textStyle="bold"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:textAllCaps="true"
                 />
             <TextView
@@ -408,7 +408,7 @@
                 android:text="5a"
                 android:textStyle="bold"
                 android:layout_weight="1"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:gravity="center"
                 android:textAllCaps="true"
                 />
@@ -418,7 +418,7 @@
                 android:text="5b"
                 android:textStyle="bold"
                 android:layout_weight="1"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:gravity="center"
                 android:textAllCaps="true"
                 />
@@ -436,7 +436,7 @@
                 android:layout_height="45dp"
                 android:text="Fri"
                 android:textStyle="bold"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:textAllCaps="true"
                 android:textAlignment="center"
                 android:gravity="center"
@@ -449,7 +449,7 @@
                 android:text="itrw324"
                 android:textStyle="bold"
                 android:layout_weight="1"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:gravity="center"
                 android:textAllCaps="true"
                 />
@@ -460,7 +460,7 @@
                 android:text="itrw322"
                 android:textStyle="bold"
                 android:layout_weight="1"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:gravity="center"
                 android:textAllCaps="true"
                 />
@@ -471,14 +471,14 @@
                 android:textStyle="bold"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:textAllCaps="true"
                 />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="10"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:textStyle="bold"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -491,7 +491,7 @@
                 android:textStyle="bold"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:textAllCaps="true"
                 />
             <TextView
@@ -499,7 +499,7 @@
                 android:layout_height="match_parent"
                 android:text="7b"
                 android:textStyle="bold"
-                android:background="white"
+                android:background="@drawable/table_boa"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:textAllCaps="true"
