@@ -32,7 +32,7 @@ app.post("/signup",(req,res)=>{
         }
         if(results && results.length)
         {
-            res.json('Duplicate student number')
+            res.send('Duplicate student number')
             console.log("duplicate student number")
             return 
         }else
@@ -47,7 +47,7 @@ app.post("/signup",(req,res)=>{
                 }
                 if(results && results.length)
                 {
-                    res.json('Duplicate email address')
+                    res.send('Duplicate email address')
                     console.log("duplicate email")
                     return
                 }else
@@ -60,7 +60,7 @@ app.post("/signup",(req,res)=>{
                             return  
                         }
                         console.log("new user created")
-                        res.json('User created successfully')
+                        res.send('User created successfully')
                         res.end()
                     })  
                 }   
@@ -70,22 +70,30 @@ app.post("/signup",(req,res)=>{
 })
 
 //Login with user password and student number
-app.get("/login",(req,res)=> {
+app.post("/login",(req,res)=> {
 
-    const studentNo = req.body.username
-    const studentPassword = req.body.password
+    var studentNo = req.body.add_student
+    var studentPassword = req.body.add_password
     const queryString = "SELECT * FROM user where student_No = ? AND user_Password = ?"
 
     connection.query(queryString,[studentNo,studentPassword],(err,rows,fields)=>{
         if(err){
             console.log("failed to retrieve user: "+ err)
             res.sendStatus(500)
-            return
+            res.end()
         }
-        console.log("fetched user successfully")
-        res.json(rows)
+        if(rows && rows.length)
+        {
+            console.log("Login Successful")
+            res.send("1")
+        }else
+        {
+            console.log("Login unsuccessful")
+            res.send("0")
+        }
     })
 })
+
  
 app.listen(3000,()=>{
     console.log("server is live on 3000")
