@@ -22,13 +22,12 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
 
-public class LoginActivity extends AppCompatActivity{
+public class LoginActivity extends AppCompatActivity {
 
 
-
-    private Button btn_login,btn_SignUp;
-    private TextInputLayout textInputUser,textInputPassword;
-    private String userName,userPassword;
+    private Button btn_login, btn_SignUp;
+    private TextInputLayout textInputUser, textInputPassword;
+    private String userName, userPassword;
     private boolean login_status;
     private int counter = 5;
     private Intent second;
@@ -37,13 +36,13 @@ public class LoginActivity extends AppCompatActivity{
     CompositeDisposable compositeDisposable = new CompositeDisposable();
 
     @Override
-    protected void onStop(){
+    protected void onStop() {
         compositeDisposable.clear();
         super.onStop();
     }
 
     @Override
-    protected void onDestroy(){
+    protected void onDestroy() {
         compositeDisposable.clear();
         super.onDestroy();
     }
@@ -123,15 +122,14 @@ public class LoginActivity extends AppCompatActivity{
     }
 
 
-   public void login(View view)
-    {
-        if(counter >0) {
+    public void login(View view) {
+        if (counter > 0) {
 
             userName = textInputUser.getEditText().getText().toString().trim();
             userPassword = textInputPassword.getEditText().getText().toString().trim();
 
             //checking if login info is valid
-            loginUser(userName,userPassword);
+            loginUser(userName, userPassword);
           /* if (!userName.isEmpty() && !userPassword.isEmpty()) {
 
             } else {
@@ -155,25 +153,25 @@ public class LoginActivity extends AppCompatActivity{
     }
 
     public void button_registerForm(View view) {
-        startActivity(new Intent(getApplicationContext(),SignUp.class));
+        startActivity(new Intent(getApplicationContext(), SignUp.class));
     }
 
-   private void loginUser(String sN,String pass){
-        compositeDisposable.add(myAPI.userLogin(sN,pass)
+    private void loginUser(String sN, String pass) {
+        compositeDisposable.add(myAPI.userLogin(sN, pass)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<String>(){
+                .subscribe(new Consumer<String>() {
                     @Override
                     public void accept(String s) throws Exception {
-                        if(s.equals("1"))//column name from database
+                        if (s.equals("1"))//column name from database
                         {
-                            Toast.makeText(LoginActivity.this,"Successful login  ",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Successful login  ", Toast.LENGTH_SHORT).show();
                             //creating new activity
                             Intent frontP = new Intent(LoginActivity.this, FrontPage.class);
                             startActivity(frontP);
                             finish();
-                        }else{
-                            Toast.makeText(LoginActivity.this,"unsuccessful login",Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(LoginActivity.this, "unsuccessful login", Toast.LENGTH_SHORT).show();
                         }
                     }
                 })

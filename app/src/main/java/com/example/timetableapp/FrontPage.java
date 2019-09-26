@@ -3,6 +3,7 @@ package com.example.timetableapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
@@ -33,6 +34,8 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
         mDrawerlayout.addDrawerListener(mToggle);
         navView = (NavigationView) findViewById(R.id.nav_view);
 
+        mDrawerlayout.addDrawerListener(mToggle);
+
         navView.setNavigationItemSelectedListener(this);
 
 
@@ -60,6 +63,7 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
 
 
         }
+        mDrawerlayout.closeDrawer(GravityCompat.START);
 
         return true;
     }
