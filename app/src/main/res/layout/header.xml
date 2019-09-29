@@ -15,12 +15,8 @@
         android:id="@+id/studentNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
-=======
         android:layout_marginTop="5dp"
         android:text="Glen Murray"
-
->>>>>>> b73695fa49d04dce1099a03885a3eb2d206b4668
         android:textColor="@color/white"
         android:textStyle="bold" />
 
@@ -28,11 +24,8 @@
         android:id="@+id/emailAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
         android:textColor="@color/white"/>
-=======
         android:text="Glen@gmail.com"
         android:textColor="@color/white" />
->>>>>>> b73695fa49d04dce1099a03885a3eb2d206b4668
 
 </LinearLayout>

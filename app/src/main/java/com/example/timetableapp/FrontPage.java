@@ -17,11 +17,12 @@ import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 
-<<<<<<< HEAD
-public class FrontPage extends AppCompatActivity {
-=======
+import retrofit2.http.HEAD;
+
+
+
+
 public class FrontPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
->>>>>>> b73695fa49d04dce1099a03885a3eb2d206b4668
 
 
     private DrawerLayout mDrawerlayout;
@@ -40,7 +41,7 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
         navView = (NavigationView) findViewById(R.id.nav_view);
 
         mDrawerlayout.addDrawerListener(mToggle);
-<<<<<<< HEAD
+
         mToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -50,7 +51,7 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
         //headerStudentNo.setText("heyyyy");
         //headerEmail = (TextView) findViewById(R.id.emailAddress);
 
-=======
+
 
         navView.setNavigationItemSelectedListener(this);
 
@@ -82,7 +83,7 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
         mDrawerlayout.closeDrawer(GravityCompat.START);
 
         return true;
->>>>>>> b73695fa49d04dce1099a03885a3eb2d206b4668
+
     }
 
     @Override

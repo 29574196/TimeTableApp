@@ -80,7 +80,7 @@ public class SignUp extends AppCompatActivity {
             return false;
         }else
         {
-            textInputEmail.setError(null);
+            textInputStudent.setError(null);
             textInputStudent.setErrorEnabled(false);
             return true;
         }
@@ -91,12 +91,10 @@ public class SignUp extends AppCompatActivity {
         if(password.isEmpty())
         {
             textInputPassword.setError("Field is required");
+            checkPassword2();
             return false;
-        }else if(password2.isEmpty())
-        {
-            textInputPassword2.setError("Field is required");
-            return false;
-        }else if(!password.equals(password2))
+        }
+        else if(!password.equals(password2))
         {
             textInputPassword.setError("Passwords don't match");
             textInputPassword2.setError("Passwords don't match");
@@ -105,7 +103,17 @@ public class SignUp extends AppCompatActivity {
         {
             textInputPassword.setError(null);
             textInputPassword.setErrorEnabled(false);
+            textInputPassword2.setError(null);
+            textInputPassword2.setErrorEnabled(false);
             return true;
+        }
+    }
+
+    private void checkPassword2()
+    {
+        if(password2.isEmpty())
+        {
+            textInputPassword2.setError("Field is required");
         }
     }
 
@@ -116,7 +124,10 @@ public class SignUp extends AppCompatActivity {
         student = textInputStudent.getEditText().getText().toString().trim();
         password = textInputPassword.getEditText().getText().toString().trim();
         password2 = textInputPassword2.getEditText().getText().toString().trim();
-
+        if(!validateEmailAddress()|!validatePassword()|!validateStudentNumber())
+        {
+          return;
+        }
             userRegister(student, password, email);
 
     }
