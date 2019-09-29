@@ -15,9 +15,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:focusable="true"
-        android:focusableInTouchMode="true">
+        android:focusableInTouchMode="true"
+        android:id="@+id/usr_email">
+
 
         <com.google.android.material.textfield.TextInputEditText
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email Address"
@@ -33,7 +36,8 @@
         android:layout_height="wrap_content"
         android:focusable="true"
         android:focusableInTouchMode="true"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="5dp"
+        android:id="@+id/usr_student">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -51,7 +55,8 @@
         android:layout_height="wrap_content"
         android:focusable="true"
         android:focusableInTouchMode="true"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="5dp"
+        android:id="@+id/pass1">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -67,7 +72,8 @@
         android:layout_height="wrap_content"
         android:focusable="true"
         android:focusableInTouchMode="true"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="5dp"
+        android:id="@+id/pass2">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -92,7 +98,7 @@
         android:background="@drawable/button_bg"
         android:textColor="@color/white"
         android:fontFamily="sans-serif-medium"
-
+        android:onClick="signUpUser"
         android:paddingLeft="70dp"
         android:paddingRight="70dp"/>
 </LinearLayout>

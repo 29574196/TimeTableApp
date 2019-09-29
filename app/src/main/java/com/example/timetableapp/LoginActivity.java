@@ -29,9 +29,9 @@ public class LoginActivity extends AppCompatActivity{
     private Button btn_login,btn_SignUp;
     private TextInputLayout textInputUser,textInputPassword;
     private String userName,userPassword;
-    private boolean login_status;
+    //private boolean login_status;
     private int counter = 5;
-    private Intent second;
+    //private Intent second;
 
     INodeJS myAPI;
     CompositeDisposable compositeDisposable = new CompositeDisposable();
