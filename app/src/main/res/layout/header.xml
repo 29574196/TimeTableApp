@@ -1,28 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="160dp"
     android:background="@drawable/navtimeback"
+    android:orientation="vertical"
     android:padding="20dp">
 
     <ImageView
-        android:src="@drawable/propicnav"
         android:layout_width="75dp"
-        android:layout_height="75sp"/>
+        android:layout_height="75sp"
+        android:src="@drawable/propicnav" />
 
     <TextView
         android:id="@+id/studentNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:textStyle="bold"
+<<<<<<< HEAD
+=======
         android:layout_marginTop="5dp"
-        />
+        android:text="Glen Murray"
+
+>>>>>>> b73695fa49d04dce1099a03885a3eb2d206b4668
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
     <TextView
         android:id="@+id/emailAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:textColor="@color/white"/>
+=======
+        android:text="Glen@gmail.com"
+        android:textColor="@color/white" />
+>>>>>>> b73695fa49d04dce1099a03885a3eb2d206b4668
 
 </LinearLayout>
