@@ -60,11 +60,28 @@ public class SignUp extends AppCompatActivity {
     {
         if(email.isEmpty())
         {
-            textInputEmail.setError("Field cannot be empty");
+            textInputEmail.setError("Field is required");
             return false;
         }else{
             textInputEmail.setError(null);
             textInputEmail.setErrorEnabled(false);
+            return true;
+        }
+    }
+
+    private boolean validateStudentNumber()
+    {
+        if(student.isEmpty())
+        {
+            textInputStudent.setError("Field is required");
+            return false;
+        }else if(student.length() != 8){
+            textInputStudent.setError("Student number must be 8 digits");
+            return false;
+        }else
+        {
+            textInputEmail.setError(null);
+            textInputStudent.setErrorEnabled(false);
             return true;
         }
     }
@@ -76,7 +93,7 @@ public class SignUp extends AppCompatActivity {
         student = textInputStudent.getEditText().getText().toString().trim();
         password = textInputPassword.getEditText().getText().toString().trim();
         password2 = textInputPassword2.getEditText().getText().toString().trim();
-        
+
             userRegister(student, password, email);
 
     }
