@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import android.content.Intent;
+import android.util.Patterns;
 import android.widget.Toast;
 import android.view.View;
 import com.example.timetableapp.Retrofit.INodeJS;
@@ -61,6 +62,11 @@ public class SignUp extends AppCompatActivity {
         if(email.isEmpty())
         {
             textInputEmail.setError("Field is required");
+            return false;
+            //next condition uses predefined method to check if emaill address matches pattern
+            //this method uses a regex to identify the pattern
+        }else if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            textInputEmail.setError("Please enter valid email address");
             return false;
         }else{
             textInputEmail.setError(null);
