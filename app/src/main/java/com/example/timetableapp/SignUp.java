@@ -86,6 +86,29 @@ public class SignUp extends AppCompatActivity {
         }
     }
 
+    private boolean validatePassword()
+    {
+        if(password.isEmpty())
+        {
+            textInputPassword.setError("Field is required");
+            return false;
+        }else if(password2.isEmpty())
+        {
+            textInputPassword2.setError("Field is required");
+            return false;
+        }else if(!password.equals(password2))
+        {
+            textInputPassword.setError("Passwords don't match");
+            textInputPassword2.setError("Passwords don't match");
+            return false;
+        }else
+        {
+            textInputPassword.setError(null);
+            textInputPassword.setErrorEnabled(false);
+            return true;
+        }
+    }
+
     public void signUpUser(View view)
     {
 
