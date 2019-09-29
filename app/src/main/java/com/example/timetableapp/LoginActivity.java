@@ -114,10 +114,22 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    private boolean validatePassword() {
+        if (userPassword.isEmpty()) {
+            textInputPassword.setError("Field is required");
+            return false;
+        }else
+        {
+            textInputPassword.setError(null);
+            textInputPassword.setErrorEnabled(false);
+            return true;
+        }
+    }
+    
     public void login(View view) {
             student = textInputStudent.getEditText().getText().toString().trim();
             userPassword = textInputPassword.getEditText().getText().toString().trim();
-            if(!validateStudentNumber())
+            if(!validateStudentNumber()|!validatePassword())
             {
                 return;
             }
