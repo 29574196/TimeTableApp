@@ -56,13 +56,27 @@ public class SignUp extends AppCompatActivity {
         //
        }
 
+    private boolean validateEmailAddress()
+    {
+        if(email.isEmpty())
+        {
+            textInputEmail.setError("Field cannot be empty");
+            return false;
+        }else{
+            textInputEmail.setError(null);
+            textInputEmail.setErrorEnabled(false);
+            return true;
+        }
+    }
+
     public void signUpUser(View view)
     {
+
         email = textInputEmail.getEditText().getText().toString().trim();
         student = textInputStudent.getEditText().getText().toString().trim();
         password = textInputPassword.getEditText().getText().toString().trim();
         password2 = textInputPassword2.getEditText().getText().toString().trim();
-
+        
             userRegister(student, password, email);
 
     }
