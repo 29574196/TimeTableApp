@@ -5,58 +5,95 @@ const bodyParser = require('body-parser')
 
 //allows access to data passed from app
 app.use(bodyParser.urlencoded({extended: false}))
+//Global connection string
+var connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'Timetable@324',
+    database: 'timetable'
+})
+
 
 //Creating new user
 app.post("/signup",(req,res)=>{
-    const connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: 'Timetable@324',
-        database: 'timetable'
-    })
 
-    const studentNo = req.body.add_student
-    const studentEmail = req.body.add_email
-    const studentPassword = req.body.add_password
+    var studentNo = req.body.add_student
+    var studentEmail = req.body.add_email
+    var studentPassword = req.body.add_password
+    //var length = studentNo.length
 
-    const queryString = "INSERT INTO user (student_no,user_email,user_password) VALUES (?,?,?)"
-    connection.query(queryString,[studentNo,studentEmail,studentPassword],(err,results,fields)=>{
+    var queryString = "SELECT * from user where student_no = ?"
+    //var queryString = "INSERT INTO user (student_no,user_email,user_password) VALUES (?,?,?)"
+    connection.query(queryString,[studentNo],(err,results,fields)=>{
         if(err){
             console.log("failed to insert new user "+ err)
             res.sendStatus(500)
-            return
+           return
         }
-
-        console.log("new user created")
-        res.end()
+        if(results && results.length)
+        {
+            res.send('Duplicate student number')
+            console.log("duplicate student number")
+            return 
+        }else
+        {
+            //Checking email unique
+            queryString = "SELECT * from user where user_email = ?"
+            connection.query(queryString,[studentEmail],(err,results,fields)=>{
+                if(err){
+                    console.log("failed to insert new user "+ err)
+                    res.sendStatus(500)
+                    return  
+                }
+                if(results && results.length)
+                {
+                    res.send('Duplicate email address')
+                    console.log("duplicate email")
+                    return
+                }else
+                {
+                    queryString = "INSERT INTO user (student_no,user_email,user_password) VALUES (?,?,?)"
+                    connection.query(queryString,[studentNo,studentEmail,studentPassword],(err,results,fields)=>{
+                        if(err){
+                            console.log("failed to insert new user "+ err)
+                            res.sendStatus(500)
+                            return  
+                        }
+                        console.log("new user created")
+                        res.send('User created successfully')
+                        res.end()
+                    })  
+                }   
+            })
+        }
     })
-
 })
 
 //Login with user password and student number
-app.get("/login/:username/:id",(req,res)=> {
+app.post("/login",(req,res)=> {
 
-    const connection = mysql.createConnection({
-        host: 'localhost',
-        user: 'root',
-        password: 'Timetable@324',
-        database: 'timetable'
-    })
-
-    const studentNo = req.params.username
-    const studentPassword = req.params.id
+    var studentNo = req.body.add_student
+    var studentPassword = req.body.add_password
     const queryString = "SELECT * FROM user where student_No = ? AND user_Password = ?"
 
     connection.query(queryString,[studentNo,studentPassword],(err,rows,fields)=>{
         if(err){
             console.log("failed to retrieve user: "+ err)
             res.sendStatus(500)
-            return
+            res.end()
         }
-        console.log("fetched users successfully")
-        res.json(rows)
+        if(rows && rows.length)
+        {
+            console.log("Login Successful")
+            res.send("1")
+        }else
+        {
+            console.log("Login unsuccessful")
+            res.send("0")
+        }
     })
 })
+
  
 app.listen(3000,()=>{
     console.log("server is live on 3000")
