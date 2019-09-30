@@ -4,61 +4,65 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:animateLayoutChanges="true"
     android:background="@color/white"
+    android:orientation="vertical"
     android:padding="30dp"
     tools:context=".LoginActivity">
 
-<!--<ScrollView android:id="@+id/scollerLogin"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent">-->
+    <!--<ScrollView android:id="@+id/scollerLogin"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">-->
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:src="@drawable/loginactivitypic"
         android:padding="30dp"
-        />
+        android:src="@drawable/loginactivitypic" />
 
     ////////////// Login Edit Text ///////////////////////////////
+
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
         android:id="@+id/usr_EditText"
-        android:layout_height="wrap_content"
-        android:focusable="true"
-        android:focusableInTouchMode="true">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Student Num:"
-            android:ems="10"
-            android:inputType="text"
-            android:textSize="20sp"/>
-    </com.google.android.material.textfield.TextInputLayout>
-//////////////////// End of Student Number edit text layout//////////
-
-
-
-///////////////////// Start of password edit //////////
-    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:focusable="true"
-        android:id="@+id/pass_EditText"
         android:focusableInTouchMode="true"
-        android:hint="Password:">
+        app:errorEnabled="true"
+        app:counterEnabled="true"
+        app:counterMaxLength="8">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="Student Num:"
             android:inputType="text"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+    //////////////////// End of Student Number edit text layout//////////
+
+
+    ///////////////////// Start of password edit //////////
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/pass_EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:hint="Password:"
+        app:passwordToggleEnabled="true"
+        app:errorEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:textSize="20sp" />
     </com.google.android.material.textfield.TextInputLayout>
     ///////////////End of pasword edit text///////////////
-
 
 
     <Button
@@ -68,15 +72,15 @@
 
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:text="Login Now"
-        android:textAllCaps="false"
-        android:textSize="22sp"
         android:background="@drawable/button_bg"
-        android:textColor="@color/white"
         android:fontFamily="sans-serif-medium"
         android:onClick="login"
         android:paddingLeft="70dp"
-        android:paddingRight="70dp"/>
+        android:paddingRight="70dp"
+        android:text="Login Now"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="22sp" />
 
     <Button
         android:id="@+id/btn_SignUp"
@@ -85,15 +89,15 @@
 
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:text="Register"
-        android:textAllCaps="false"
-        android:textSize="22sp"
         android:background="@drawable/button_bg"
-        android:textColor="@color/white"
         android:fontFamily="sans-serif-medium"
         android:onClick="button_registerForm"
         android:paddingLeft="70dp"
-        android:paddingRight="70dp"/>
+        android:paddingRight="70dp"
+        android:text="Register"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="22sp" />
 
-<!--</ScrollView>-->
+    <!--</ScrollView>-->
 </LinearLayout>
