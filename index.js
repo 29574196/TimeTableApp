@@ -13,6 +13,43 @@ var connection = mysql.createConnection({
     database: 'timetable'
 })
 
+//gets user class information
+app.post("/classes",(req,res)=>
+{
+    console.log("fetching user classes with id: " + req.body.add_student)
+
+    const connection = mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: 'Timetable@324',
+        database: 'timetable'
+    })
+
+    var studentNo = req.body.add_student
+    const queryString = "SELECT Distinct venue.venue_id, venue.building, venue.room, class.module_code, class.day_code, class.time_slot "+
+    "FROM venue join class on venue.venue_id = class.venue_id "+
+    "join user_module ON class.module_code = user_module.module_code "+
+    "join timetable.user on user_module.student_no = ?"
+
+    connection.query(queryString,[studentNo],(err,rows,fields)=>{
+        if(err){
+            console.log("failed to retrieve classes "+ err)
+            res.sendStatus(500)
+            return
+        }
+        if(rows && rows.length){
+            console.log("fetched classes successfully")
+            res.json(rows)
+        }else
+        {
+            res.send("no classes have been found")
+        }
+    })
+    //res.end()
+})
+
+
+
 //adding user modules
 app.post("/modules",(req,res)=>
 {
