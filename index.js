@@ -13,6 +13,57 @@ var connection = mysql.createConnection({
     database: 'timetable'
 })
 
+//adding user modules
+app.post("/modules",(req,res)=>
+{
+    
+    var studentNo = req.body.add_student
+    var studentModule = req.body.add_module
+
+    //check to see if the module exist
+    var queryString = "SELECT * From module where module_code = ?"
+
+    connection.query(queryString,[studentModule],(err,rows,fields)=>{
+        if(err){
+            console.log("failed to retrieve classes "+ err)
+            res.sendStatus(500)
+            return
+        }
+        if(rows && rows.length)
+        {
+            queryString = "SELECT * From user_module where student_no = ? AND module_code = ?"
+            connection.query(queryString,[studentNo,studentModule],(err,rows,fields)=>{
+                if(err){
+                    console.log("failed to retrieve classes "+ err)
+                    res.sendStatus(500)
+                    return
+                }
+            
+                if(rows && rows.length)
+                {
+                    res.send("duplicate entry")
+                }else
+                {
+                    queryString = "INSERT INTO user_module (student_no,module_code) VALUES (?,?)"
+                    connection.query(queryString,[studentNo,studentModule],(err,rows,fields)=>{
+                        if(err){
+                            console.log("failed to retrieve classes "+ err)
+                            res.sendStatus(500)
+                            return
+                        }
+                            res.send("successfully added module")
+                    })
+                }
+            })
+            
+        }else
+        {
+            console.log("module does not exist")
+            res.send("module does not exist")
+        }
+    })
+    
+})
 
 //Creating new user
 app.post("/signup",(req,res)=>{
