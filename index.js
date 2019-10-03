@@ -2,9 +2,10 @@ const express = require('express')
 const app = express()
 const mysql = require('mysql')
 const bodyParser = require('body-parser')
-
+const crypto = require('crypto')
 //allows access to data passed from app
 app.use(bodyParser.urlencoded({extended: false}))
+
 //Global connection string
 var connection = mysql.createConnection({
     host: 'localhost',
@@ -13,11 +14,12 @@ var connection = mysql.createConnection({
     database: 'timetable'
 })
 
+
 //gets user class information
 app.post("/classes",(req,res)=>
 {
-    console.log("fetching user classes with id: " + req.body.add_student)
-
+    console.log("fetching user classes with id: " + req.body.add_student + key)
+    
     const connection = mysql.createConnection({
         host: 'localhost',
         user: 'root',
@@ -47,7 +49,7 @@ app.post("/classes",(req,res)=>
     })
     //res.end()
 })
-
+ 
 
 
 //adding user modules
@@ -102,6 +104,8 @@ app.post("/modules",(req,res)=>
     
 })
 
+const key = "90909090909090909090909090909090"
+
 //Creating new user
 app.post("/signup",(req,res)=>{
 
@@ -140,6 +144,18 @@ app.post("/signup",(req,res)=>{
                     return
                 }else
                 {
+                    //////////////////////////Encrypting Password/////////////
+                    //creating iv for cipher 
+                    var init_vec = crypto.randomBytes(16,(err,buf) =>{
+                        if(err)
+                        {
+                            console.log("failed to generate random number")
+                        }else{
+                            console.log("generated")
+                        }
+                    });
+
+                    ////////////////////////////////////////////////////////////
                     queryString = "INSERT INTO user (student_no,user_email,user_password) VALUES (?,?,?)"
                     connection.query(queryString,[studentNo,studentEmail,studentPassword],(err,results,fields)=>{
                         if(err){
@@ -181,6 +197,7 @@ app.post("/login",(req,res)=> {
         }
     })
 })
+
 
  
 app.listen(3000,()=>{
