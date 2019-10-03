@@ -13,8 +13,10 @@ var connection = mysql.createConnection({
     password: 'Timetable@324',
     database: 'timetable'
 })
-
-
+//encryption
+let hashPassword = function(password){
+    return crypto.createHash('sha512').update(password).digest('hex');
+}
 //gets user class information
 app.post("/classes",(req,res)=>
 {
@@ -110,10 +112,9 @@ app.post("/signup",(req,res)=>{
     var studentNo = req.body.add_student
     var studentEmail = req.body.add_email
     var studentPassword = req.body.add_password
-    //var length = studentNo.length
 
     var queryString = "SELECT * from user where student_no = ?"
-    //var queryString = "INSERT INTO user (student_no,user_email,user_password) VALUES (?,?,?)"
+    
     connection.query(queryString,[studentNo],(err,results,fields)=>{
         if(err){
             console.log("failed to insert new user "+ err)
@@ -143,7 +144,7 @@ app.post("/signup",(req,res)=>{
                 }else
                 {
                     //////////////////////////Encrypting Password/////////////
-                    let encrypted_password = crypto.createHash('sha512').update(studentPassword).digest('hex');
+                    var encrypted_password = hashPassword(studentPassword);
                     ///////////////////////////////////////////////////////////
                     queryString = "INSERT INTO user (student_no,user_email,user_password,init_vec) VALUES (?,?,?,?)"
                     connection.query(queryString,[studentNo,studentEmail,encrypted_password,"init_vec"],(err,results,fields)=>{
@@ -169,7 +170,8 @@ app.post("/login",(req,res)=> {
     var studentPassword = req.body.add_password
     const queryString = "SELECT * FROM user where student_No = ? AND user_Password = ?"
 
-    connection.query(queryString,[studentNo,studentPassword],(err,rows,fields)=>{
+    var encrypted_password = hashPassword(studentPassword);
+    connection.query(queryString,[studentNo,encrypted_password],(err,rows,fields)=>{
         if(err){
             console.log("failed to retrieve user: "+ err)
             res.sendStatus(500)
