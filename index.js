@@ -104,8 +104,6 @@ app.post("/modules",(req,res)=>
     
 })
 
-const key = "90909090909090909090909090909090"
-
 //Creating new user
 app.post("/signup",(req,res)=>{
 
@@ -145,19 +143,10 @@ app.post("/signup",(req,res)=>{
                 }else
                 {
                     //////////////////////////Encrypting Password/////////////
-                    //creating iv for cipher 
-                    var init_vec = crypto.randomBytes(16,(err,buf) =>{
-                        if(err)
-                        {
-                            console.log("failed to generate random number")
-                        }else{
-                            console.log("generated")
-                        }
-                    });
-
-                    ////////////////////////////////////////////////////////////
-                    queryString = "INSERT INTO user (student_no,user_email,user_password) VALUES (?,?,?)"
-                    connection.query(queryString,[studentNo,studentEmail,studentPassword],(err,results,fields)=>{
+                    let encrypted_password = crypto.createHash('sha512').update(studentPassword).digest('hex');
+                    ///////////////////////////////////////////////////////////
+                    queryString = "INSERT INTO user (student_no,user_email,user_password,init_vec) VALUES (?,?,?,?)"
+                    connection.query(queryString,[studentNo,studentEmail,encrypted_password,"init_vec"],(err,results,fields)=>{
                         if(err){
                             console.log("failed to insert new user "+ err)
                             res.sendStatus(500)
