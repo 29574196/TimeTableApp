@@ -155,7 +155,7 @@ app.post("/signup",(req,res)=>{
                         }
                         console.log("new user created")
                         res.send('User created successfully')
-                        res.end()
+                       
                     })  
                 }   
             })
@@ -168,6 +168,7 @@ app.post("/login",(req,res)=> {
 
     var studentNo = req.body.add_student
     var studentPassword = req.body.add_password
+
     const queryString = "SELECT * FROM user where student_No = ? AND user_Password = ?"
 
     var encrypted_password = hashPassword(studentPassword);
@@ -175,7 +176,6 @@ app.post("/login",(req,res)=> {
         if(err){
             console.log("failed to retrieve user: "+ err)
             res.sendStatus(500)
-            res.end()
         }
         if(rows && rows.length)
         {
@@ -188,6 +188,7 @@ app.post("/login",(req,res)=> {
         }
     })
 })
+ 
 
 
  

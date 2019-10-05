@@ -22,28 +22,25 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import retrofit2.Retrofit;
 
-public class LoginActivity extends AppCompatActivity{
-
-
+public class LoginActivity extends AppCompatActivity {
 
     private Button btn_login,btn_SignUp;
-    private TextInputLayout textInputUser,textInputPassword;
-    private String userName,userPassword;
-    private boolean login_status;
+    private TextInputLayout textInputStudent,textInputPassword;
+    private String student,userPassword;
+
     private int counter = 5;
-    private Intent second;
 
     INodeJS myAPI;
     CompositeDisposable compositeDisposable = new CompositeDisposable();
 
     @Override
-    protected void onStop(){
+    protected void onStop() {
         compositeDisposable.clear();
         super.onStop();
     }
 
     @Override
-    protected void onDestroy(){
+    protected void onDestroy() {
         compositeDisposable.clear();
         super.onDestroy();
     }
@@ -58,25 +55,10 @@ public class LoginActivity extends AppCompatActivity{
         myAPI = retrofit.create(INodeJS.class);
 
         //assign EditText to corresponding TextInputLayout
-        textInputUser = findViewById(R.id.usr_EditText);
+        textInputStudent = findViewById(R.id.usr_EditText);
         textInputPassword = findViewById(R.id.pass_EditText);
         //
-        //
-        userName = textInputUser.getEditText().getText().toString().trim();
-        userPassword = textInputPassword.getEditText().getText().toString().trim();
-
-     /* btn_login = (Button) findViewById(R.id.btn_Login);
-        btn_login.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public  void onClick(View view){
-                Toast notice = Toast.makeText(getApplicationContext(), userName +"  "+userPassword, Toast.LENGTH_LONG);
-                //loginUser(userName,userPassword);
-
-            }
-        }); */
-
-        //Working login with hard coded information
+      //Working login with hard coded information
         /*btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -111,69 +93,70 @@ public class LoginActivity extends AppCompatActivity{
                 }
 
                 }
-            });
-        /*
-        btn_SignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });*/
+            });*/
 
     }
 
-
-   public void login(View view)
+    private boolean validateStudentNumber()
     {
-        if(counter >0) {
-
-            userName = textInputUser.getEditText().getText().toString().trim();
-            userPassword = textInputPassword.getEditText().getText().toString().trim();
-
-            //checking if login info is valid
-            loginUser(userName,userPassword);
-          /* if (!userName.isEmpty() && !userPassword.isEmpty()) {
-
-            } else {
-                //subtracting from attempts if users get details wrong
-               counter --;
-                //pop up message alerting users that they password and user name is wrong
-                String toastNote = "Wrong User name or password \n " + counter + " attempt/s remaining" ;
-                Toast notice = Toast.makeText(getApplicationContext(), toastNote, Toast.LENGTH_LONG);
-                notice.setMargin(0, 0);
-                notice.setGravity(0,-2,2);
-                notice.show();
-                //********************************************************************
-            }
-           //user.setText("");
-           // password.setText("");
+        if(student.isEmpty())
+        {
+            textInputStudent.setError("Field is required");
+            return false;
+        }else if(student.length() != 8){
+            textInputStudent.setError("Student number must be 8 digits");
+            return false;
         }else
         {
-            btn_login.setEnabled(false);*/
+            textInputStudent.setError(null);
+            textInputStudent.setErrorEnabled(false);
+            return true;
         }
+    }
 
+    private boolean validatePassword() {
+        if (userPassword.isEmpty()) {
+            textInputPassword.setError("Field is required");
+            return false;
+        }else
+        {
+            textInputPassword.setError(null);
+            textInputPassword.setErrorEnabled(false);
+            return true;
+        }
+    }
+    
+    public void login(View view) {
+            student = textInputStudent.getEditText().getText().toString().trim();
+            userPassword = textInputPassword.getEditText().getText().toString().trim();
+            if(!validateStudentNumber()|!validatePassword())
+            {
+                return;
+            }
+            //checking if login info is valid
+            loginUser(student, userPassword);
     }
 
     public void button_registerForm(View view) {
-        startActivity(new Intent(getApplicationContext(),SignUp.class));
+        startActivity(new Intent(getApplicationContext(), SignUp.class));
     }
 
-   private void loginUser(String sN,String pass){
-        compositeDisposable.add(myAPI.userLogin(sN,pass)
+    private void loginUser(String sN, String pass) {
+        compositeDisposable.add(myAPI.userLogin(sN, pass)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<String>(){
+                .subscribe(new Consumer<String>() {
                     @Override
                     public void accept(String s) throws Exception {
-                        if(s.equals("1"))//column name from database
+                        if (s.equals("1"))//column name from database
                         {
-                            Toast.makeText(LoginActivity.this,"Successful login  ",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Successful login  ", Toast.LENGTH_SHORT).show();
                             //creating new activity
                             Intent frontP = new Intent(LoginActivity.this, FrontPage.class);
                             startActivity(frontP);
                             finish();
-                        }else{
-                            Toast.makeText(LoginActivity.this,"unsuccessful login",Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(LoginActivity.this, "unsuccessful login", Toast.LENGTH_SHORT).show();
                         }
                     }
                 })
