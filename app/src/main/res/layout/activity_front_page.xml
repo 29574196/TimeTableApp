@@ -101,7 +101,7 @@
             ///////////// End of Time Zone /////////////////////
 
 
-            ///////////// Monday TextViews /////////////////////
+            ///////////// 7:30 TextViews /////////////////////
 
             <TableRow>
 
@@ -118,6 +118,7 @@
                     />
 
                 <TextView
+                    android:id = "@+id/mon1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -128,6 +129,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id = "@+id/tue1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -138,6 +140,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id = "@+id/wed1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -150,6 +153,7 @@
                     />
 
                 <TextView
+                    android:id = "@+id/thur1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -162,6 +166,7 @@
                     />
 
                 <TextView
+                    android:id = "@+id/fri1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -193,6 +198,7 @@
                     />
 
                 <TextView
+                    android:id = "@+id/mon2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -266,6 +272,7 @@
                     />
 
                 <TextView
+                    android:id = "@+id/mon3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -337,6 +344,7 @@
                     />
 
                 <TextView
+                    android:id = "@+id/mon4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -408,6 +416,7 @@
                     />
 
                 <TextView
+                    android:id = "@+id/mon5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -477,6 +486,7 @@
                     />
 
                 <TextView
+                    android:id = "@+id/mon6"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
