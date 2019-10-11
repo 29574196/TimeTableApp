@@ -2,14 +2,14 @@ package com.example.timetableapp.Retrofit;
 
     public class ClassModel
     {
-        private String venue,timeSlot,building,day,module,room;
+        private String venue_id,time_slot,building,day_code,module_code,room;
 
         public String getTimeSlot() {
-            return timeSlot;
+            return time_slot;
         }
 
         public void setTimeSlot(String timeSlot) {
-            this.timeSlot = timeSlot;
+            this.time_slot = timeSlot;
         }
 
         public String getBuilding() {
@@ -21,19 +21,19 @@ package com.example.timetableapp.Retrofit;
         }
 
         public String getDay() {
-            return day;
+            return day_code;
         }
 
         public void setDay(String day) {
-            this.day = day;
+            this.day_code = day;
         }
 
         public String getModule() {
-            return module;
+            return module_code;
         }
 
         public void setModule(String module) {
-            this.module = module;
+            this.module_code = module;
         }
 
         public String getRoom() {
@@ -45,11 +45,11 @@ package com.example.timetableapp.Retrofit;
         }
 
         public String getVenue() {
-            return venue;
+            return venue_id;
         }
 
         public void setVenue(String venue) {
-            this.venue = venue;
+            this.venue_id = venue;
         }
     }
 
