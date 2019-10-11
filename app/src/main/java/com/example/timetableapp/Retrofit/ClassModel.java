@@ -52,4 +52,4 @@ package com.example.timetableapp.Retrofit;
             this.venue = venue;
         }
     }
-}
+

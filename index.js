@@ -154,7 +154,7 @@ app.post("/signup",(req,res)=>{
                             return  
                         }
                         console.log("new user created")
-                        res.send('User created successfully')
+                        res.send('0')
                        
                     })  
                 }   
