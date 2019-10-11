@@ -38,7 +38,7 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
         mDrawerlayout = (DrawerLayout) findViewById(R.id.navDrawerLayout);
         mToggle = new ActionBarDrawerToggle(this, mDrawerlayout, R.string.open, R.string.close);
         mDrawerlayout.addDrawerListener(mToggle);
-        navView = (NavigationView) findViewById(R.id.nav_view);
+        navView = (NavigationView) findViewById(R.id.navView);
 
         mDrawerlayout.addDrawerListener(mToggle);
 
