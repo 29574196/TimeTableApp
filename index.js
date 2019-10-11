@@ -52,7 +52,34 @@ app.post("/classes",(req,res)=>
     //res.end()
 })
  
+/////////////////////////// get class info ////////////////////////////////////
+//gets user class information
+app.get("/class/:student",(req,res)=>
+{
+    console.log("class/")
+    var studentNo = req.params.student
+    const queryString = "SELECT Distinct venue.venue_id, venue.building, venue.room, class.module_code, class.day_code, class.time_slot "+
+    "FROM venue join class on venue.venue_id = class.venue_id "+
+    "join user_module ON class.module_code = user_module.module_code "+
+    "join timetable.user on user_module.student_no = ?"
 
+    connection.query(queryString,[studentNo],(err,rows,fields)=>{
+        if(err){
+            console.log("failed to retrieve classes "+ err)
+            res.sendStatus(500)
+            return
+        }
+        if(rows && rows.length){
+            console.log("fetched classes successfully")
+            res.json(rows)
+        }else
+        {
+            res.send("no classes have been found")
+        }
+    })
+    //res.end()
+})
+///////////////////////////////////////////////////////////////
 
 //adding user modules
 app.post("/modules",(req,res)=>
