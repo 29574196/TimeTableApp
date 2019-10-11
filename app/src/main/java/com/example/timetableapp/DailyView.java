@@ -26,19 +26,19 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 
-public class FrontPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class DailyView extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+
+    private AppBarConfiguration mAppBarConfiguration;
 
     private NavigationView navigationView;
     private Toolbar toolbar =null;
     private DrawerLayout drawer;
 
-    private AppBarConfiguration mAppBarConfiguration;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_front_page);
-         toolbar = findViewById(R.id.toolbar);
+        setContentView(R.layout.activity_daily_view);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -52,9 +52,8 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this,drawer,toolbar,R.string.open,R.string.close);
         toggle.syncState();
-         navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
+        navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
@@ -63,14 +62,15 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
                 .setDrawerLayout(drawer)
                 .build();
 
-
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.front_page,menu);
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.front_page, menu);
         return true;
     }
+
 
     @Override
     public void onBackPressed() {
@@ -96,7 +96,7 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
+
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int id = menuItem.getItemId();
 
@@ -104,17 +104,17 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
         {
 
             case R.id.nav_dashboard:
-                Intent h = new Intent(FrontPage.this,Dashboard.class);
-                        startActivity(h);
+                Intent h = new Intent(DailyView.this,Dashboard.class);
+                startActivity(h);
                 finish();
-                        break;
+                break;
             case R.id.nav_dailyview:
-                Intent i = new Intent(FrontPage.this,DailyView.class);
+                Intent i = new Intent(DailyView.this,DailyView.class);
                 startActivity(i);
                 finish();
                 break;
             case R.id.nav_notes:
-                Intent j = new Intent(FrontPage.this,Notes.class);
+                Intent j = new Intent(DailyView.this,Notes.class);
                 startActivity(j);
                 finish();
                 break;

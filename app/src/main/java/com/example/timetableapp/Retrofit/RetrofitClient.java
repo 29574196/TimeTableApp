@@ -10,7 +10,7 @@ public class RetrofitClient {
         if(instance == null)
             instance = new Retrofit.Builder()
  
-                    .baseUrl("http://192.168.8.100:3000/")
+                    .baseUrl("http://196.252.250.200:3000/")
 
                    
 
