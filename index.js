@@ -79,6 +79,7 @@ app.get("/class/:student",(req,res)=>
     })
     //res.end()
 })
+
 ///////////////////////////////////////////////////////////////
 
 //adding user modules

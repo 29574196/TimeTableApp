@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                second= new Intent(MainActivity.this, FrontPage.class);
+                //second= new Intent(MainActivity.this, FrontPage.class);
             }
         });
 
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         String userP = password.getText().toString();
         if((userN.equals("Stduent")) && (userP.equals("1234") ))
         {
-            Intent second_PageIntent = new Intent(MainActivity.this, FrontPage.class); //move from login page to front page
+            //Intent second_PageIntent = new Intent(MainActivity.this, FrontPage.class); //move from login page to front page
             startActivity(second);
         }
         else

@@ -1,11 +1,30 @@
 package com.example.timetableapp;
 
+import android.content.Intent;
+import android.os.Bundle;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
+import android.view.MenuItem;
+import android.view.View;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
+
+import com.google.android.material.navigation.NavigationView;
+
 import androidx.drawerlayout.widget.DrawerLayout;
-//import androidx.navigation.Navigation;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import android.view.Menu;
 
 import android.content.Intent;
 import android.media.MediaExtractor;
@@ -35,14 +54,11 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 import retrofit2.http.HEAD;
 
 
+public class FrontPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
-
-public class FrontPage extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-
-
-    private DrawerLayout mDrawerlayout;
-    private ActionBarDrawerToggle mToggle;
-    private NavigationView navView;
+    private NavigationView navigationView;
+    private Toolbar toolbar =null;
+    private DrawerLayout drawer;
     private List<ClassModel> classList;
 
     INodeJS myAPI;
@@ -60,32 +76,36 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
         super.onDestroy();
     }
 
-    private TextView headerStudentNo,headerEmail;
+    private AppBarConfiguration mAppBarConfiguration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_front_page);
+         toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+        drawer = findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this,drawer,toolbar,R.string.open,R.string.close);
+        toggle.syncState();
+         navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
-        mDrawerlayout = (DrawerLayout) findViewById(R.id.navDrawerLayout);
-        mToggle = new ActionBarDrawerToggle(this, mDrawerlayout, R.string.open, R.string.close);
-        mDrawerlayout.addDrawerListener(mToggle);
-        navView = (NavigationView) findViewById(R.id.navView);
-
-        mDrawerlayout.addDrawerListener(mToggle);
-
-        mToggle.syncState();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        navView.setNavigationItemSelectedListener(this);
-
-        mToggle.syncState();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
-        //initialize api
-        //Retrofit retrofit = RetrofitClient.getInstance();
-
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        mAppBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.nav_dailyview, R.id.nav_dashboard, R.id.nav_notes,
+                R.id.nav_module, R.id.nav_share)
+                .setDrawerLayout(drawer)
+                .build();
 
         //********************************************************
         Retrofit.Builder builder = new Retrofit.Builder()
@@ -109,16 +129,16 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
             @Override
             public void onResponse(Call<List<ClassModel>> call, Response<List<ClassModel>> response) {
 
-               classList = response.body();
+                classList = response.body();
 
-               String s="";
-               for(ClassModel c : classList)
+                String s="";
+                for(ClassModel c : classList)
                 {
                     s += "  " +  c.getModule();
 
                     //creating new activity
                 }
-               //Test to see if data was retrieved successfully
+                //Test to see if data was retrieved successfully
                 Toast.makeText(FrontPage.this, "Uhm : " + s, Toast.LENGTH_SHORT).show();
             }
 
@@ -129,41 +149,66 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
         });
     }
 
+    public void creatRow()
+    {
+
+    }
+
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        switch (menuItem.getItemId()) {
-            case R.id.navDaily:
-                getSupportFragmentManager().beginTransaction().replace(R.id.frag_container,
-                        new DailyviewFragment()).commit();
-                break;
-            case R.id.navAppoint:
-                getSupportFragmentManager().beginTransaction().replace(R.id.frag_container,
-                        new AppointmentFragment()).commit();
-                break;
-            case R.id.navModule:
-                getSupportFragmentManager().beginTransaction().replace(R.id.frag_container,
-                        new ModuleFragment()).commit();
-                break;
-
-
-        }
-        mDrawerlayout.closeDrawer(GravityCompat.START);
-
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.front_page,menu);
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(drawer.isDrawerOpen(GravityCompat.START))
+        {
+            drawer.closeDrawer(GravityCompat.START);
+        }
+        else
+        {
+            super.onBackPressed();
+        }
 
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
 
-        if (mToggle.onOptionsItemSelected(item)) {
-            return true;
-
+        if(id == R.id.action_settings)
+        {
+            return  true;
         }
         return super.onOptionsItemSelected(item);
-
     }
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        int id = menuItem.getItemId();
+
+        switch (id)
+        {
+
+            case R.id.nav_dashboard:
+                Intent h = new Intent(FrontPage.this,Dashboard.class);
+                        startActivity(h);
+                finish();
+                        break;
+            case R.id.nav_dailyview:
+                Intent i = new Intent(FrontPage.this,DailyView.class);
+                startActivity(i);
+                finish();
+                break;
+            case R.id.nav_notes:
+                Intent j = new Intent(FrontPage.this,Notes.class);
+                startActivity(j);
+                finish();
+                break;
+        }
 
 
+        return true;
+    }
 }
