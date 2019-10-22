@@ -58,42 +58,6 @@ public class LoginActivity extends AppCompatActivity {
         textInputStudent = findViewById(R.id.usr_EditText);
         textInputPassword = findViewById(R.id.pass_EditText);
         //
-      //Working login with hard coded information
-        /*btn_login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //keeping track of user attempts
-                if(counter >0) {
-                    user = findViewById(R.id.usr_EditText);
-                    password = findViewById(R.id.pass_EditText);
-                    String userName = user.getText().toString();
-                    String userPassword = password.getText().toString();
-                    //checking if login info is valid
-                    if (userName.equals("hey") && userPassword.equals("hey")) {
-                        //creating new activity
-                        //Intent frontP = new Intent(LoginActivity.this, FrontPage.class);
-                        //startActivity(frontP);
-                        //finish();
-                    } else {
-                        //subtracting from attempts if users get details wrong
-                        counter --;
-                        //pop up message alerting users that they password and user name is wrong
-                        String toastNote = "Wrong User name or password \n " + counter + " attempt/s remaining" ;
-                        Toast notice = Toast.makeText(getApplicationContext(), toastNote, Toast.LENGTH_LONG);
-                        notice.setMargin(0, 0);
-                        notice.setGravity(0,-2,2);
-                        notice.show();
-                        //********************************************************************
-                    }
-                    user.setText("");
-                    password.setText("");
-                }else
-                {
-                    btn_login.setEnabled(false);
-                }
-
-                }
-            });*/
 
     }
 
