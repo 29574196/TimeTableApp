@@ -134,7 +134,7 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
                 String s="";
                 for(ClassModel c : classList)
                 {
-                    s += "  " +  c.getModule();
+                    s += "  " +  c.getModule_code();
 
                     //creating new activity
                 }
