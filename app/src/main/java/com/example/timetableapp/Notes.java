@@ -1,6 +1,7 @@
 package com.example.timetableapp;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -17,15 +18,17 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.tabs.TabLayout;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
 
 import android.view.Menu;
 
-public class Notes extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class Notes extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, Tab1.OnFragmentInteractionListener,Tab2.OnFragmentInteractionListener,Tab3.OnFragmentInteractionListener,Tab4.OnFragmentInteractionListener{
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -39,6 +42,35 @@ public class Notes extends AppCompatActivity implements NavigationView.OnNavigat
         setContentView(R.layout.activity_notes);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        TabLayout tablelayout = (TabLayout) findViewById(R.id.tablayout);
+        tablelayout.addTab(tablelayout.newTab().setText("Mon"));
+        tablelayout.addTab(tablelayout.newTab().setText("Tue"));
+        tablelayout.addTab(tablelayout.newTab().setText("Wed"));
+        tablelayout.addTab(tablelayout.newTab().setText("Thu"));
+        tablelayout.setTabGravity(TabLayout.GRAVITY_FILL);
+
+        final ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        final PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(),tablelayout.getTabCount());
+        viewPager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tablelayout));
+
+        tablelayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,5 +135,8 @@ public class Notes extends AppCompatActivity implements NavigationView.OnNavigat
     }
 
 
+    @Override
+    public void onFragmentInteraction(Uri uri) {
 
+    }
 }
