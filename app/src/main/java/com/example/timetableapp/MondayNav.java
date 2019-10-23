@@ -1,7 +1,6 @@
 package com.example.timetableapp;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -12,23 +11,22 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.core.view.GravityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.tabs.TabLayout;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.viewpager.widget.ViewPager;
 
 import android.view.Menu;
 
-public class Notes extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, Tab1.OnFragmentInteractionListener,Tab2.OnFragmentInteractionListener,Tab3.OnFragmentInteractionListener,Tab4.OnFragmentInteractionListener{
+public class MondayNav extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -39,56 +37,9 @@ public class Notes extends AppCompatActivity implements NavigationView.OnNavigat
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notes);
-        toolbar = findViewById(R.id.toolbar);
+        setContentView(R.layout.activity_monday_nav);
+         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        TabLayout tablelayout = (TabLayout) findViewById(R.id.tablayout);
-        tablelayout.addTab(tablelayout.newTab().setText("Mon"));
-        tablelayout.addTab(tablelayout.newTab().setText("Tue"));
-        tablelayout.addTab(tablelayout.newTab().setText("Wed"));
-        tablelayout.addTab(tablelayout.newTab().setText("Thu"));
-        tablelayout.setTabGravity(TabLayout.GRAVITY_FILL);
-
-        final ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-        final PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(),tablelayout.getTabCount());
-        viewPager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tablelayout));
-
-        tablelayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-                switch (tab.getPosition())
-                {
-                    case 0:
-                        Intent tab1 = new Intent(Notes.this,Tab1.class);
-                        startActivity(tab1);
-                        finish();
-                        break;
-
-                    case 1:
-                        Intent tab2 = new Intent(Notes.this,Tab2.class);
-                        startActivity(tab2);
-                        finish();
-                        break;
-
-
-
-
-                }
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
-
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,6 +48,8 @@ public class Notes extends AppCompatActivity implements NavigationView.OnNavigat
                         .setAction("Action", null).show();
             }
         });
+         drawer = findViewById(R.id.drawer_layout);
+         navigationView = findViewById(R.id.nav_view);
         drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this,drawer,toolbar,R.string.open,R.string.close);
@@ -114,17 +67,37 @@ public class Notes extends AppCompatActivity implements NavigationView.OnNavigat
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.front_page, menu);
+        return true;
+    }
+
+
+
+    @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
-        if(id == R.id.action_settings)
-        {
-            return  true;
+        if (id == R.id.action_settings) {
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
+    public void onBackPressed() {
+        if(drawer.isDrawerOpen(GravityCompat.START))
+        {
+            drawer.closeDrawer(GravityCompat.START);
+        }
+        else
+        {
+            super.onBackPressed();
+        }
 
+    }
+
+    @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int id = menuItem.getItemId();
 
@@ -132,48 +105,48 @@ public class Notes extends AppCompatActivity implements NavigationView.OnNavigat
         {
 
             case R.id.nav_dashboard:
-                Intent h = new Intent(Notes.this,Dashboard.class);
+                Intent h = new Intent(MondayNav.this,Dashboard.class);
                 startActivity(h);
                 finish();
                 break;
             case R.id.nav_dailyview:
-                Intent i = new Intent(Notes.this,DailyView.class);
+                Intent i = new Intent(MondayNav.this,DailyView.class);
                 startActivity(i);
                 finish();
                 break;
             case R.id.nav_notes:
-                Intent j = new Intent(Notes.this,Notes.class);
+                Intent j = new Intent(MondayNav.this,Notes.class);
                 startActivity(j);
                 finish();
                 break;
 
             case R.id.nav_mon:
-                Intent mon = new Intent(Notes.this,MondayNav.class);
+                Intent mon = new Intent(MondayNav.this,MondayNav.class);
                 startActivity(mon);
                 finish();
                 break;
 
             case R.id.nav_tue:
-                Intent tue = new Intent(Notes.this,TuesdayNav.class);
+                Intent tue = new Intent(MondayNav.this,TuesdayNav.class);
                 startActivity(tue);
                 finish();
                 break;
 
             case R.id.nav_wes:
-                Intent wes = new Intent(Notes.this,WednesdayNav.class);
+                Intent wes = new Intent(MondayNav.this,WednesdayNav.class);
                 startActivity(wes);
                 finish();
                 break;
 
             case R.id.nav_thu:
-                Intent thu = new Intent(Notes.this,ThursdayNav.class);
+                Intent thu = new Intent(MondayNav.this,ThursdayNav.class);
                 startActivity(thu);
                 finish();
                 break;
 
 
             case R.id.nav_fri:
-                Intent fri = new Intent(Notes.this,FridayNav.class);
+                Intent fri = new Intent(MondayNav.this,FridayNav.class);
                 startActivity(fri);
                 finish();
                 break;
@@ -182,11 +155,5 @@ public class Notes extends AppCompatActivity implements NavigationView.OnNavigat
 
 
         return true;
-    }
-
-
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
     }
 }

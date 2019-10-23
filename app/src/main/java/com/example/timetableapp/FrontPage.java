@@ -206,6 +206,38 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
                 startActivity(j);
                 finish();
                 break;
+
+
+            case R.id.nav_mon:
+                Intent mon = new Intent(FrontPage.this,MondayNav.class);
+                startActivity(mon);
+                finish();
+                break;
+
+            case R.id.nav_tue:
+                Intent tue = new Intent(FrontPage.this,TuesdayNav.class);
+                startActivity(tue);
+                finish();
+                break;
+
+            case R.id.nav_wes:
+                Intent wes = new Intent(FrontPage.this,WednesdayNav.class);
+                startActivity(wes);
+                finish();
+                break;
+
+            case R.id.nav_thu:
+                Intent thu = new Intent(FrontPage.this,ThursdayNav.class);
+                startActivity(thu);
+                finish();
+                break;
+
+
+            case R.id.nav_fri:
+                Intent fri = new Intent(FrontPage.this,FridayNav.class);
+                startActivity(fri);
+                finish();
+                break;
         }
 
 

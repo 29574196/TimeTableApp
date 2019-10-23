@@ -22,12 +22,27 @@
             android:title="Add Module" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Days">
         <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="@string/menu_share" />
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_mon"
+
+                    android:title="Monday" />
+                <item
+                    android:id="@+id/nav_tue"
+                    android:title="Tuesday"/>
+                <item
+                    android:id="@+id/nav_wes"
+                    android:title="Wednesday"/>
+                <item
+                    android:id="@+id/nav_thu"
+                    android:title="Thursday"/>
+                <item
+                    android:id="@+id/nav_fri"
+                    android:title="Friday"/>
+            </group>
+
 
         </menu>
     </item>

@@ -5,9 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Tab1">
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MondayNav"
+    tools:showIn="@layout/app_bar_front_page">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="173dp"

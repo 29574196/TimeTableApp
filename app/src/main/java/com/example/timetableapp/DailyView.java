@@ -57,8 +57,8 @@ public class DailyView extends AppCompatActivity implements NavigationView.OnNav
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_dailyview, R.id.nav_dashboard, R.id.nav_notes,
-                R.id.nav_module, R.id.nav_share)
+                R.id.nav_dailyview, R.id.nav_dashboard, R.id.nav_notes
+                ,R.id.nav_mon,R.id.nav_tue,R.id.nav_wes,R.id.nav_thu,R.id.nav_fri)
                 .setDrawerLayout(drawer)
                 .build();
 
@@ -70,6 +70,8 @@ public class DailyView extends AppCompatActivity implements NavigationView.OnNav
         getMenuInflater().inflate(R.menu.front_page, menu);
         return true;
     }
+
+
 
 
     @Override

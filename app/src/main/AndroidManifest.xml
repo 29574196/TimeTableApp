@@ -14,9 +14,29 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".FridayNav"
+            android:label="@string/title_activity_friday_nav"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".ThursdayNav"
+            android:label="@string/title_activity_thursday_nav"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".WednesdayNav"
+            android:label="@string/title_activity_wednesday_nav"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TuesdayNav"
+            android:label="@string/title_activity_tuesday_nav"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MondayNav"
+            android:label="@string/title_activity_monday_nav"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".Notes"
             android:label="@string/title_activity_notes"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Dashboard"
             android:label="@string/title_activity_dashboard"
