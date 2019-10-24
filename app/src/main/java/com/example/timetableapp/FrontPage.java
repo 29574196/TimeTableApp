@@ -1,6 +1,7 @@
 package com.example.timetableapp;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -33,8 +34,11 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.R.color;
 
 import com.example.timetableapp.Retrofit.ClassModel;
 import com.example.timetableapp.Retrofit.INodeJS;
@@ -60,6 +64,8 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
     private Toolbar toolbar =null;
     private DrawerLayout drawer;
     private List<ClassModel> classList;
+
+    private String [][] timeTableArr;
 
     INodeJS myAPI;
     CompositeDisposable compositeDisposable = new CompositeDisposable();
@@ -102,14 +108,14 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_dailyview, R.id.nav_dashboard, R.id.nav_notes,
+                R.id.nav_dashboard, R.id.nav_notes,
                 R.id.nav_module, R.id.nav_share)
                 .setDrawerLayout(drawer)
                 .build();
 
         //********************************************************
         Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl("http://192.168.43.224:3000/")
+                .baseUrl("http://196.252.252.110:3000/")
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit = builder.build();
@@ -123,7 +129,7 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
     {
         Call<List<ClassModel>> call = myAPI.getClassInfo("12121212");
 
-        Toast.makeText(FrontPage.this, "Uhm : hey" , Toast.LENGTH_SHORT).show();
+        //Toast.makeText(FrontPage.this, "Uhm : hey" , Toast.LENGTH_SHORT).show();
 
         call.enqueue(new Callback<List<ClassModel>>() {
             @Override
@@ -131,15 +137,9 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
 
                 classList = response.body();
 
-                String s="";
-                for(ClassModel c : classList)
-                {
-                    s += "  " +  c.getModule_code();
-
-                    //creating new activity
-                }
-                //Test to see if data was retrieved successfully
-                Toast.makeText(FrontPage.this, "Uhm : " + s, Toast.LENGTH_SHORT).show();
+                initArr();
+                populateFree(classList);
+                addTable();
             }
 
             @Override
@@ -149,10 +149,171 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
         });
     }
 
-    public void creatRow()
+    //****************************************************************//
+    public void populateFree(List<ClassModel> cl)
     {
 
+        for( ClassModel cm : cl) {
+            if (cm.getTime_slot().equals("1")) {
+                switch (cm.getDay_code().toUpperCase()) {
+                    case "MON":
+                        timeTableArr[1][1] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+                    case "TUES":
+                        timeTableArr[1][2] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+                    case "WED":
+                        timeTableArr[1][3] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+                    case "THURS":
+                        timeTableArr[1][4] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+                    case "FRI":
+                        timeTableArr[1][5] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+
+                }
+            } else if(cm.getTime_slot().equals("2")){
+                switch (cm.getDay_code().toUpperCase()) {
+                    case "MON":
+                        timeTableArr[2][1] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+                    case "TUES":
+                        timeTableArr[2][2] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+                    case "WED":
+                        timeTableArr[2][3] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+                    case "THURS":
+                        timeTableArr[2][4] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+                    case "FRI":
+                        timeTableArr[2][5] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+
+                }
+            } else if(cm.getTime_slot().equals("3")){
+                switch (cm.getDay_code().toUpperCase()) {
+                    case "MON":
+                        timeTableArr[3][1] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+                    case "TUES":
+                        timeTableArr[3][2] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+                    case "WED":
+                        timeTableArr[3][3] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+                    case "THURS":
+                        timeTableArr[3][4] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+                    case "FRI":
+                        timeTableArr[3][5] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+
+                }
+            } else if(cm.getTime_slot().equals("4")) {
+                switch (cm.getDay_code().toUpperCase()) {
+                    case "MON":
+                        timeTableArr[4][1] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+                    case "TUES":
+                        timeTableArr[4][2] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+                    case "WED":
+                        timeTableArr[4][3] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+                    case "THURS":
+                        timeTableArr[4][4] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+                    case "FRI":
+                        timeTableArr[4][5] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+
+                }
+            }else if(cm.getTime_slot().equals("5")){
+                switch (cm.getDay_code().toUpperCase()) {
+                    case "MON":
+                        timeTableArr[5][1] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+                    case "TUES":
+                        timeTableArr[5][2] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+                    case "WED":
+                        timeTableArr[5][3] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+                    case "THURS":
+                        timeTableArr[5][4] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+                    case "FRI":
+                        timeTableArr[5][5] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+
+                }
+            }
+        }
+
+
     }
+
+    public void initArr()
+    {
+        timeTableArr = new String[7][6];
+        //////////////////////////////////////////
+        timeTableArr[0][1] = "MON";
+        timeTableArr[0][2] = "TUE";
+        timeTableArr[0][3] = "WED";
+        timeTableArr[0][4] = "THUR";
+        timeTableArr[0][5] = "FRI";
+        /////////////////////////////////////////
+        timeTableArr[1][0] = "7:30";
+        timeTableArr[2][0] = "9:30";
+        timeTableArr[3][0] = "11:00";
+        timeTableArr[4][0] = "13:00";
+        timeTableArr[5][0] = "14:30";
+        timeTableArr[6][0] = "16:00";
+
+        for(int r = 1;r <= 6;r++)
+        {
+            for(int c = 1;c<=5;c++)
+            {
+                timeTableArr[r][c] = "     ";
+            }
+        }
+
+    }
+
+    //Table Update
+    public void addTable()
+    {
+        //ViewGroup layout = (ViewGroup) findViewById(R.id.contentTable);
+        TableLayout t = (TableLayout) findViewById(R.id.timetable);
+        t.setStretchAllColumns(true);
+        t.bringToFront();
+
+        TableRow.LayoutParams l = new TableRow.LayoutParams(50,260);
+
+        for(int r = 0;r <= 6;r++)
+        {
+            TableRow row= new TableRow(this);
+
+            for(int c = 0;c<=5;c++)
+            {
+                TextView tempCol = new TextView(this);
+                tempCol.setText(timeTableArr[r][c]);
+                if(c==0||r==0) {
+                    tempCol.setBackgroundColor(Color.GRAY);
+                }else if(r%2 == 0)
+                {
+                    tempCol.setBackgroundResource(R.color.gradientStop);
+                }
+                row.addView(tempCol,l);
+            }
+            t.addView(row);
+        }
+        //layout.addView(t);
+    }
+
+    //*******************************************************************************************
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -196,14 +357,42 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
                         startActivity(h);
                 finish();
                         break;
-            case R.id.nav_dailyview:
-                Intent i = new Intent(FrontPage.this,DailyView.class);
-                startActivity(i);
-                finish();
-                break;
+
             case R.id.nav_notes:
                 Intent j = new Intent(FrontPage.this,Notes.class);
                 startActivity(j);
+                finish();
+                break;
+
+
+            case R.id.nav_mon:
+                Intent mon = new Intent(FrontPage.this,MondayNav.class);
+                startActivity(mon);
+                finish();
+                break;
+
+            case R.id.nav_tue:
+                Intent tue = new Intent(FrontPage.this,TuesdayNav.class);
+                startActivity(tue);
+                finish();
+                break;
+
+            case R.id.nav_wes:
+                Intent wes = new Intent(FrontPage.this,WednesdayNav.class);
+                startActivity(wes);
+                finish();
+                break;
+
+            case R.id.nav_thu:
+                Intent thu = new Intent(FrontPage.this,ThursdayNav.class);
+                startActivity(thu);
+                finish();
+                break;
+
+
+            case R.id.nav_fri:
+                Intent fri = new Intent(FrontPage.this,FridayNav.class);
+                startActivity(fri);
                 finish();
                 break;
         }

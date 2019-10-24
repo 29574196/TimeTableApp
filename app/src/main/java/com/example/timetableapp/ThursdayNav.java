@@ -26,7 +26,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 
-public class DailyView extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class ThursdayNav extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -37,7 +37,7 @@ public class DailyView extends AppCompatActivity implements NavigationView.OnNav
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_daily_view);
+        setContentView(R.layout.activity_thursday_nav);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -49,16 +49,17 @@ public class DailyView extends AppCompatActivity implements NavigationView.OnNav
             }
         });
         drawer = findViewById(R.id.drawer_layout);
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this,drawer,toolbar,R.string.open,R.string.close);
         toggle.syncState();
-        navigationView.setNavigationItemSelectedListener(this);
         navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_dailyview, R.id.nav_dashboard, R.id.nav_notes,
-                R.id.nav_module, R.id.nav_share)
+                R.id.nav_dashboard, R.id.nav_notes
+                ,R.id.nav_mon,R.id.nav_tue,R.id.nav_wes,R.id.nav_thu,R.id.nav_fri)
                 .setDrawerLayout(drawer)
                 .build();
 
@@ -72,7 +73,7 @@ public class DailyView extends AppCompatActivity implements NavigationView.OnNav
     }
 
 
-    @Override
+
     public void onBackPressed() {
         if(drawer.isDrawerOpen(GravityCompat.START))
         {
@@ -96,7 +97,7 @@ public class DailyView extends AppCompatActivity implements NavigationView.OnNav
         return super.onOptionsItemSelected(item);
     }
 
-
+    @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int id = menuItem.getItemId();
 
@@ -104,20 +105,48 @@ public class DailyView extends AppCompatActivity implements NavigationView.OnNav
         {
 
             case R.id.nav_dashboard:
-                Intent h = new Intent(DailyView.this,Dashboard.class);
+                Intent h = new Intent(ThursdayNav.this,FrontPage.class);
                 startActivity(h);
                 finish();
                 break;
-            case R.id.nav_dailyview:
-                Intent i = new Intent(DailyView.this,DailyView.class);
-                startActivity(i);
-                finish();
-                break;
+
             case R.id.nav_notes:
-                Intent j = new Intent(DailyView.this,Notes.class);
+                Intent j = new Intent(ThursdayNav.this,Notes.class);
                 startActivity(j);
                 finish();
                 break;
+
+            case R.id.nav_mon:
+                Intent mon = new Intent(ThursdayNav.this,MondayNav.class);
+                startActivity(mon);
+                finish();
+                break;
+
+            case R.id.nav_tue:
+                Intent tue = new Intent(ThursdayNav.this,TuesdayNav.class);
+                startActivity(tue);
+                finish();
+                break;
+
+            case R.id.nav_wes:
+                Intent wes = new Intent(ThursdayNav.this,WednesdayNav.class);
+                startActivity(wes);
+                finish();
+                break;
+
+            case R.id.nav_thu:
+                Intent thu = new Intent(ThursdayNav.this,ThursdayNav.class);
+                startActivity(thu);
+                finish();
+                break;
+
+
+            case R.id.nav_fri:
+                Intent fri = new Intent(ThursdayNav.this,FridayNav.class);
+                startActivity(fri);
+                finish();
+                break;
+
         }
 
 

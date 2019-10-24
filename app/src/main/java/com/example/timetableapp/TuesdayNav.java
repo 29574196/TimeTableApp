@@ -26,19 +26,19 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 
-public class Dashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class TuesdayNav extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+
+    private AppBarConfiguration mAppBarConfiguration;
 
     private NavigationView navigationView;
     private Toolbar toolbar =null;
     private DrawerLayout drawer;
 
-    private AppBarConfiguration mAppBarConfiguration;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard);
-        toolbar = findViewById(R.id.toolbar);
+        setContentView(R.layout.activity_tuesday_nav);
+         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -48,7 +48,8 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                         .setAction("Action", null).show();
             }
         });
-        drawer = findViewById(R.id.drawer_layout);
+         drawer = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this,drawer,toolbar,R.string.open,R.string.close);
         toggle.syncState();
@@ -57,8 +58,8 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
-                R.id.nav_tools, R.id.nav_share, R.id.nav_send)
+                R.id.nav_dashboard, R.id.nav_notes
+                ,R.id.nav_mon,R.id.nav_tue,R.id.nav_wes,R.id.nav_thu,R.id.nav_fri)
                 .setDrawerLayout(drawer)
                 .build();
 
@@ -70,6 +71,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         getMenuInflater().inflate(R.menu.front_page, menu);
         return true;
     }
+
 
 
     @Override
@@ -104,15 +106,44 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         {
 
             case R.id.nav_dashboard:
-                Intent h = new Intent(Dashboard.this,FrontPage.class);
+                Intent h = new Intent(TuesdayNav.this,FrontPage.class);
                 startActivity(h);
                 finish();
                 break;
 
-
             case R.id.nav_notes:
-                Intent j = new Intent(Dashboard.this,Notes.class);
+                Intent j = new Intent(TuesdayNav.this,Notes.class);
                 startActivity(j);
+                finish();
+                break;
+            case R.id.nav_mon:
+                Intent mon = new Intent(TuesdayNav.this,MondayNav.class);
+                startActivity(mon);
+                finish();
+                break;
+
+            case R.id.nav_tue:
+                Intent tue = new Intent(TuesdayNav.this,TuesdayNav.class);
+                startActivity(tue);
+                finish();
+                break;
+
+            case R.id.nav_wes:
+                Intent wes = new Intent(TuesdayNav.this,WednesdayNav.class);
+                startActivity(wes);
+                finish();
+                break;
+
+            case R.id.nav_thu:
+                Intent thu = new Intent(TuesdayNav.this,ThursdayNav.class);
+                startActivity(thu);
+                finish();
+                break;
+
+
+            case R.id.nav_fri:
+                Intent fri = new Intent(TuesdayNav.this,FridayNav.class);
+                startActivity(fri);
                 finish();
                 break;
         }

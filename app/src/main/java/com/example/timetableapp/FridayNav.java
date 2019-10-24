@@ -26,18 +26,18 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 
-public class Dashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class FridayNav extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+
+    private AppBarConfiguration mAppBarConfiguration;
 
     private NavigationView navigationView;
     private Toolbar toolbar =null;
     private DrawerLayout drawer;
 
-    private AppBarConfiguration mAppBarConfiguration;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard);
+        setContentView(R.layout.activity_friday_nav);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -48,17 +48,20 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                         .setAction("Action", null).show();
             }
         });
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+
         drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this,drawer,toolbar,R.string.open,R.string.close);
         toggle.syncState();
         navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
-                R.id.nav_tools, R.id.nav_share, R.id.nav_send)
+                R.id.nav_dashboard, R.id.nav_notes
+                ,R.id.nav_mon,R.id.nav_tue,R.id.nav_wes,R.id.nav_thu,R.id.nav_fri)
                 .setDrawerLayout(drawer)
                 .build();
 
@@ -72,7 +75,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
     }
 
 
-    @Override
+
     public void onBackPressed() {
         if(drawer.isDrawerOpen(GravityCompat.START))
         {
@@ -96,7 +99,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         return super.onOptionsItemSelected(item);
     }
 
-
+    @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int id = menuItem.getItemId();
 
@@ -104,17 +107,48 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         {
 
             case R.id.nav_dashboard:
-                Intent h = new Intent(Dashboard.this,FrontPage.class);
+                Intent h = new Intent(FridayNav.this,FrontPage.class);
                 startActivity(h);
                 finish();
                 break;
 
-
             case R.id.nav_notes:
-                Intent j = new Intent(Dashboard.this,Notes.class);
+                Intent j = new Intent(FridayNav.this,Notes.class);
                 startActivity(j);
                 finish();
                 break;
+
+            case R.id.nav_mon:
+                Intent mon = new Intent(FridayNav.this,MondayNav.class);
+                startActivity(mon);
+                finish();
+                break;
+
+            case R.id.nav_tue:
+                Intent tue = new Intent(FridayNav.this,TuesdayNav.class);
+                startActivity(tue);
+                finish();
+                break;
+
+            case R.id.nav_wes:
+                Intent wes = new Intent(FridayNav.this,WednesdayNav.class);
+                startActivity(wes);
+                finish();
+                break;
+
+            case R.id.nav_thu:
+                Intent thu = new Intent(FridayNav.this,ThursdayNav.class);
+                startActivity(thu);
+                finish();
+                break;
+
+
+            case R.id.nav_fri:
+                Intent fri = new Intent(FridayNav.this,FridayNav.class);
+                startActivity(fri);
+                finish();
+                break;
+
         }
 
 

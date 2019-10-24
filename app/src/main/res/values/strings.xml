@@ -19,6 +19,11 @@
     <string name="title_activity_daily_view">DailyView</string>
     <string name="title_activity_dashboard">Dashboard</string>
     <string name="title_activity_notes">Notes</string>
+    <string name="title_activity_monday_nav">MondayNav</string>
+    <string name="title_activity_tuesday_nav">TuesdayNav</string>
+    <string name="title_activity_wednesday_nav">WednesdayNav</string>
+    <string name="title_activity_thursday_nav">ThursdayNav</string>
+    <string name="title_activity_friday_nav">FridayNav</string>
 
 
 </resources>
