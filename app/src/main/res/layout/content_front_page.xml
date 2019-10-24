@@ -8,518 +8,529 @@
     tools:context=".FrontPage"
     >
 
+   <ScrollView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+      android:layout_centerHorizontal="true">
 
-
-
-   <LinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:layout_marginTop="6dp"
-       android:orientation="vertical">
-
-
-
-      <TableLayout
+      <LinearLayout
           android:layout_width="match_parent"
           android:layout_height="match_parent"
-          android:id = "@+id/timetable"
-          >
-
-         //////////////// Time ZOne layout/////////////////////
-
-         <!--<TableRow>
-
-            <TextView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text=" "
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="MON"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="TUE"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="WED"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="THU"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="FRI"
-                android:textStyle="bold" />
-
-
-         </TableRow>
-         ///////////// End of Time Zone /////////////////////
-
-
-         ///////////// Monday TextViews /////////////////////
-
-         <TableRow>
-
-            <TextView
-                android:layout_width="35dp"
-                android:layout_height="69dp"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="07:30"
-                android:textAlignment="center"
-                android:textAllCaps="true"
-                android:textStyle="bold"
-
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="5a"
-                android:textAllCaps="true"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="3b"
-                android:textAllCaps="true"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="itrw322"
-                android:textAllCaps="true"
-                android:textStyle="bold"
-
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="itrw325"
-                android:textAllCaps="true"
-                android:textStyle="bold"
-
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="itrw324"
-                android:textAllCaps="true"
-                android:textStyle="bold" />
-
-
-         </TableRow>
-         /////////////// Enf of monday time zone//////
-
-
-         ///////////// Tuesday TextViews /////////////////////
-
-         <TableRow>
-
-            <TextView
-                android:layout_width="38dp"
-                android:layout_height="69dp"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="9:30"
-                android:textAlignment="center"
-                android:textAllCaps="true"
-                android:textStyle="bold"
-
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="4b"
-                android:textAllCaps="true"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="3a"
-                android:textAllCaps="true"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="itrw321"
-                android:textAllCaps="true"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="itrw324"
-                android:textAllCaps="true"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="itrw322"
-                android:textAllCaps="true"
-                android:textStyle="bold"
-
-                />
-
-
-         </TableRow>
-         /////////////// Enf of Tuesday time zone/////////
-
-
-         ///////////// Wednesday TextViews /////////////////////
-
-         <TableRow>
-
-            <TextView
-                android:layout_width="38dp"
-                android:layout_height="70dp"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="11:00"
-                android:textAlignment="center"
-                android:textAllCaps="true"
-                android:textStyle="bold"
-
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="itrw321"
-                android:textAllCaps="true"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="7a"
-                android:textAllCaps="true"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="3a"
-                android:textAllCaps="true"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="11"
-                android:textAllCaps="true"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="4a"
-                android:textAllCaps="true"
-                android:textStyle="bold" />
-
-
-         </TableRow>
-         /////////////// Enf of Wednesday time zone/////////
-
-
-         ///////////// Thursday TextViews /////////////////////
-
-         <TableRow>
-
-            <TextView
-                android:layout_width="38dp"
-                android:layout_height="75dp"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="13:00"
-                android:textAlignment="center"
-                android:textAllCaps="true"
-                android:textStyle="bold"
-
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="10"
-                android:textAllCaps="true"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="5b"
-                android:textAllCaps="true"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="itrw325"
-                android:textAllCaps="true"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="7b"
-                android:textAllCaps="true"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="3b"
-                android:textAllCaps="true"
-                android:textStyle="bold" />
-
-
-         </TableRow>
-         /////////////// Enf of Thursday time zone///////////
-
-
-         ///////////// Friday TextViews /////////////////////
-
-         <TableRow>
-
-            <TextView
-                android:layout_width="38dp"
-                android:layout_height="75dp"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="14:30"
-                android:textAlignment="center"
-                android:textAllCaps="true"
-                android:textStyle="bold"
-
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="itrw325"
-                android:textAllCaps="true"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="itrw324"
-                android:textAllCaps="true"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="4a"
-                android:textAllCaps="true"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="5a"
-                android:textAllCaps="true"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="7a"
-                android:textAllCaps="true"
-                android:textStyle="bold" />
-
-
-         </TableRow>
-         /////////////// Enf of Friday time zone///////////
-
-
-         <TableRow>
-
-            <TextView
-                android:layout_width="38dp"
-                android:layout_height="75dp"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="16:00"
-                android:textAlignment="center"
-                android:textAllCaps="true"
-                android:textStyle="bold"
-
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="itrw325"
-                android:textAllCaps="true"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="itrw324"
-                android:textAllCaps="true"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="4b"
-                android:textAllCaps="true"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="5b"
-                android:textAllCaps="true"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/table_boa"
-                android:gravity="center"
-                android:text="7b"
-                android:textAllCaps="true"
-                android:textStyle="bold" />
-
-
-         </TableRow>-->
-
-
-      </TableLayout>
-
-
-   </LinearLayout>
+          android:layout_marginTop="6dp"
+          android:orientation="vertical">
+
+
+
+         <TableLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:id = "@+id/timetable"
+             >
+
+            //////////////// Time ZOne layout/////////////////////
+
+            <!--<TableRow>
+
+               <TextView
+                   android:layout_width="40dp"
+                   android:layout_height="40dp"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text=" "
+                   android:textStyle="bold" />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="MON"
+                   android:textStyle="bold" />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="TUE"
+                   android:textStyle="bold" />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="WED"
+                   android:textStyle="bold" />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="THU"
+                   android:textStyle="bold" />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="FRI"
+                   android:textStyle="bold" />
+
+
+            </TableRow>
+            ///////////// End of Time Zone /////////////////////
+
+
+            ///////////// Monday TextViews /////////////////////
+
+            <TableRow>
+
+               <TextView
+                   android:layout_width="35dp"
+                   android:layout_height="69dp"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="07:30"
+                   android:textAlignment="center"
+                   android:textAllCaps="true"
+                   android:textStyle="bold"
+
+                   />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="5a"
+                   android:textAllCaps="true"
+                   android:textStyle="bold" />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="3b"
+                   android:textAllCaps="true"
+                   android:textStyle="bold" />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="itrw322"
+                   android:textAllCaps="true"
+                   android:textStyle="bold"
+
+                   />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="itrw325"
+                   android:textAllCaps="true"
+                   android:textStyle="bold"
+
+                   />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="itrw324"
+                   android:textAllCaps="true"
+                   android:textStyle="bold" />
+
+
+            </TableRow>
+            /////////////// Enf of monday time zone//////
+
+
+            ///////////// Tuesday TextViews /////////////////////
+
+            <TableRow>
+
+               <TextView
+                   android:layout_width="38dp"
+                   android:layout_height="69dp"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="9:30"
+                   android:textAlignment="center"
+                   android:textAllCaps="true"
+                   android:textStyle="bold"
+
+                   />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="4b"
+                   android:textAllCaps="true"
+                   android:textStyle="bold" />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="3a"
+                   android:textAllCaps="true"
+                   android:textStyle="bold" />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="itrw321"
+                   android:textAllCaps="true"
+                   android:textStyle="bold" />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="itrw324"
+                   android:textAllCaps="true"
+                   android:textStyle="bold" />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="itrw322"
+                   android:textAllCaps="true"
+                   android:textStyle="bold"
+
+                   />
+
+
+            </TableRow>
+            /////////////// Enf of Tuesday time zone/////////
+
+
+            ///////////// Wednesday TextViews /////////////////////
+
+            <TableRow>
+
+               <TextView
+                   android:layout_width="38dp"
+                   android:layout_height="70dp"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="11:00"
+                   android:textAlignment="center"
+                   android:textAllCaps="true"
+                   android:textStyle="bold"
+
+                   />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="itrw321"
+                   android:textAllCaps="true"
+                   android:textStyle="bold" />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="7a"
+                   android:textAllCaps="true"
+                   android:textStyle="bold" />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="3a"
+                   android:textAllCaps="true"
+                   android:textStyle="bold" />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="11"
+                   android:textAllCaps="true"
+                   android:textStyle="bold" />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="4a"
+                   android:textAllCaps="true"
+                   android:textStyle="bold" />
+
+
+            </TableRow>
+            /////////////// Enf of Wednesday time zone/////////
+
+
+            ///////////// Thursday TextViews /////////////////////
+
+            <TableRow>
+
+               <TextView
+                   android:layout_width="38dp"
+                   android:layout_height="75dp"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="13:00"
+                   android:textAlignment="center"
+                   android:textAllCaps="true"
+                   android:textStyle="bold"
+
+                   />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="10"
+                   android:textAllCaps="true"
+                   android:textStyle="bold" />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="5b"
+                   android:textAllCaps="true"
+                   android:textStyle="bold" />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="itrw325"
+                   android:textAllCaps="true"
+                   android:textStyle="bold" />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="7b"
+                   android:textAllCaps="true"
+                   android:textStyle="bold" />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="3b"
+                   android:textAllCaps="true"
+                   android:textStyle="bold" />
+
+
+            </TableRow>
+            /////////////// Enf of Thursday time zone///////////
+
+
+            ///////////// Friday TextViews /////////////////////
+
+            <TableRow>
+
+               <TextView
+                   android:layout_width="38dp"
+                   android:layout_height="75dp"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="14:30"
+                   android:textAlignment="center"
+                   android:textAllCaps="true"
+                   android:textStyle="bold"
+
+                   />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="itrw325"
+                   android:textAllCaps="true"
+                   android:textStyle="bold" />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="itrw324"
+                   android:textAllCaps="true"
+                   android:textStyle="bold" />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="4a"
+                   android:textAllCaps="true"
+                   android:textStyle="bold" />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="5a"
+                   android:textAllCaps="true"
+                   android:textStyle="bold" />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="7a"
+                   android:textAllCaps="true"
+                   android:textStyle="bold" />
+
+
+            </TableRow>
+            /////////////// Enf of Friday time zone///////////
+
+
+            <TableRow>
+
+               <TextView
+                   android:layout_width="38dp"
+                   android:layout_height="75dp"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="16:00"
+                   android:textAlignment="center"
+                   android:textAllCaps="true"
+                   android:textStyle="bold"
+
+                   />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="itrw325"
+                   android:textAllCaps="true"
+                   android:textStyle="bold" />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="itrw324"
+                   android:textAllCaps="true"
+                   android:textStyle="bold" />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="4b"
+                   android:textAllCaps="true"
+                   android:textStyle="bold" />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="5b"
+                   android:textAllCaps="true"
+                   android:textStyle="bold" />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_weight="1"
+                   android:background="@drawable/table_boa"
+                   android:gravity="center"
+                   android:text="7b"
+                   android:textAllCaps="true"
+                   android:textStyle="bold" />
+
+
+            </TableRow>-->
+
+
+         </TableLayout>
+
+
+      </LinearLayout>
+
+
+
+   </ScrollView>
+
+
+
+
+
 
 
 </LinearLayout>

@@ -118,6 +118,12 @@ public class FridayNav extends AppCompatActivity implements NavigationView.OnNav
                 finish();
                 break;
 
+            case R.id.nav_module:
+                Intent mod = new Intent(FridayNav.this,Module.class);
+                startActivity(mod);
+                finish();
+                break;
+
             case R.id.nav_mon:
                 Intent mon = new Intent(FridayNav.this,MondayNav.class);
                 startActivity(mon);

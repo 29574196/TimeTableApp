@@ -110,6 +110,12 @@ public class ThursdayNav extends AppCompatActivity implements NavigationView.OnN
                 finish();
                 break;
 
+            case R.id.nav_module:
+                Intent mod = new Intent(ThursdayNav.this,Module.class);
+                startActivity(mod);
+                finish();
+                break;
+
             case R.id.nav_notes:
                 Intent j = new Intent(ThursdayNav.this,Notes.class);
                 startActivity(j);

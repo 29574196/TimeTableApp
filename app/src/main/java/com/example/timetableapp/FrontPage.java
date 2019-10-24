@@ -109,7 +109,7 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_dashboard, R.id.nav_notes,
-                R.id.nav_module, R.id.nav_share)
+                R.id.nav_module, R.id.nav_share,R.id.nav_appointment)
                 .setDrawerLayout(drawer)
                 .build();
 
@@ -300,11 +300,12 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
             {
                 TextView tempCol = new TextView(this);
                 tempCol.setText(timeTableArr[r][c]);
-                if(c==0||r==0) {
-                    tempCol.setBackgroundColor(Color.GRAY);
-                }else if(r%2 == 0)
+                if(r%2 == 0)
                 {
-                    tempCol.setBackgroundResource(R.color.gradientStop);
+                    tempCol.setBackgroundColor(Color.LTGRAY);
+                }
+                if (c==0||r==0) {
+                    tempCol.setTextSize(15);
                 }
                 row.addView(tempCol,l);
             }
@@ -313,6 +314,14 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
         //layout.addView(t);
     }
 
+    public String[][] getArr(){
+        return timeTableArr;
+    }
+
+    public List<ClassModel> getClassList()
+    {
+        return classList;
+    }
     //*******************************************************************************************
 
     @Override
@@ -361,6 +370,18 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
             case R.id.nav_notes:
                 Intent j = new Intent(FrontPage.this,Notes.class);
                 startActivity(j);
+                finish();
+                break;
+
+            case R.id.nav_appointment:
+                Intent a = new Intent(FrontPage.this,Appointment.class);
+                startActivity(a);
+                finish();
+                break;
+
+            case R.id.nav_module:
+                Intent mod = new Intent(FrontPage.this,Module.class);
+                startActivity(mod);
                 finish();
                 break;
 

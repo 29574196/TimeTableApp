@@ -116,6 +116,12 @@ public class WednesdayNav extends AppCompatActivity implements NavigationView.On
                 finish();
                 break;
 
+            case R.id.nav_module:
+                Intent mod = new Intent(WednesdayNav.this,Module.class);
+                startActivity(mod);
+                finish();
+                break;
+
             case R.id.nav_mon:
                 Intent mon = new Intent(WednesdayNav.this,MondayNav.class);
                 startActivity(mon);

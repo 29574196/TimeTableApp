@@ -25,21 +25,36 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.Button;
+import android.widget.EditText;
 
-public class Dashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class Module extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+
+    private AppBarConfiguration mAppBarConfiguration;
 
     private NavigationView navigationView;
     private Toolbar toolbar =null;
     private DrawerLayout drawer;
-
-    private AppBarConfiguration mAppBarConfiguration;
+    private EditText module_Edit;
+    private Button mod_Btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard);
+        setContentView(R.layout.activity_module);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mod_Btn = (Button) findViewById(R.id.mod_btn);
+        module_Edit = (EditText) findViewById(R.id.mod_edit);
+
+        mod_Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                module_Edit.getText().toString();
+            }
+        });
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +64,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
             }
         });
         drawer = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this,drawer,toolbar,R.string.open,R.string.close);
         toggle.syncState();
@@ -72,7 +88,17 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
     }
 
 
+
     @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     public void onBackPressed() {
         if(drawer.isDrawerOpen(GravityCompat.START))
         {
@@ -86,17 +112,6 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-
-        if(id == R.id.action_settings)
-        {
-            return  true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int id = menuItem.getItemId();
 
@@ -104,21 +119,56 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         {
 
             case R.id.nav_dashboard:
-                Intent h = new Intent(Dashboard.this,FrontPage.class);
+                Intent h = new Intent(Module.this,FrontPage.class);
                 startActivity(h);
                 finish();
                 break;
 
+
             case R.id.nav_module:
-                Intent mod = new Intent(Dashboard.this,Module.class);
+                Intent mod = new Intent(Module.this,Module.class);
                 startActivity(mod);
                 finish();
                 break;
+
+
             case R.id.nav_notes:
-                Intent j = new Intent(Dashboard.this,Notes.class);
+                Intent j = new Intent(Module.this,Notes.class);
                 startActivity(j);
                 finish();
                 break;
+
+            case R.id.nav_mon:
+                Intent mon = new Intent(Module.this,MondayNav.class);
+                startActivity(mon);
+                finish();
+                break;
+
+            case R.id.nav_tue:
+                Intent tue = new Intent(Module.this,TuesdayNav.class);
+                startActivity(tue);
+                finish();
+                break;
+
+            case R.id.nav_wes:
+                Intent wes = new Intent(Module.this,WednesdayNav.class);
+                startActivity(wes);
+                finish();
+                break;
+
+            case R.id.nav_thu:
+                Intent thu = new Intent(Module.this,ThursdayNav.class);
+                startActivity(thu);
+                finish();
+                break;
+
+
+            case R.id.nav_fri:
+                Intent fri = new Intent(Module.this,FridayNav.class);
+                startActivity(fri);
+                finish();
+                break;
+
         }
 
 

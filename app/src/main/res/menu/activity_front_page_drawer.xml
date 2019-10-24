@@ -8,10 +8,7 @@
             android:id="@+id/nav_dashboard"
            android:icon="@drawable/ic_dashboard"
             android:title="Dashboard" />
-        <item
-            android:id="@+id/nav_dailyview"
-            android:icon="@drawable/ic_weekly_view"
-            android:title="Daily View" />
+
         <item
             android:id="@+id/nav_notes"
             android:icon="@drawable/ic_appointment"
@@ -20,6 +17,11 @@
             android:id="@+id/nav_module"
             android:icon="@drawable/ic_module"
             android:title="Add Module" />
+
+        <item
+            android:id="@+id/nav_appointment"
+            android:icon="@drawable/ic_event"
+            android:title="Appointment"/>
     </group>
 
     <item android:title="Days">
