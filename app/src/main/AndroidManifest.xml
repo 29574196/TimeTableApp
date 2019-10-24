@@ -4,7 +4,7 @@
     package="com.example.timetableapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.SET_ALARM"/>
+    <uses-permission android:name="android.permission.SET_ALARM" />
 
     <application
         android:allowBackup="true"
@@ -15,9 +15,13 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Appointment"
+            android:label="@string/title_activity_appointment"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".Module"
             android:label="@string/title_activity_module"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".FridayNav"
             android:label="@string/title_activity_friday_nav"
@@ -70,10 +74,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <receiver android:name=".MyAlarm"
+
+        <receiver
+            android:name=".MyAlarm"
             android:enabled="true"
-            android:exported="true"
-            />
+            android:exported="true" />
     </application>
 
 </manifest>

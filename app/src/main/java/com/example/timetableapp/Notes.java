@@ -1,6 +1,7 @@
 package com.example.timetableapp;
 
 import android.app.AlarmManager;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
@@ -16,6 +17,7 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.core.app.NotificationCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -49,6 +51,7 @@ public class Notes extends AppCompatActivity implements NavigationView.OnNavigat
     private EditText notes_Edit;
     private Button notes_Btn;
     private Button notification_Btn;
+    private NotificationManager notificationManager;
 
     private TimePicker timePicker;
     @Override
@@ -135,6 +138,7 @@ public class Notes extends AppCompatActivity implements NavigationView.OnNavigat
 
     private void setAlarm(long timeInMillis)
     {
+
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(this, MyAlarm.class);
 
