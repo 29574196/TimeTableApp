@@ -54,8 +54,6 @@ public class MondayNav extends AppCompatActivity implements NavigationView.OnNav
     private Toolbar toolbar =null;
     private DrawerLayout drawer;
 
-    private FrontPage front;
-   // private String [][] timetable;
     private String [][] timeTableArr;
     private List<ClassModel> classList;
 

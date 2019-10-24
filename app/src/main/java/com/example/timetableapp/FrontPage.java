@@ -249,6 +249,25 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
                         break;
 
                 }
+            }else if(cm.getTime_slot().equals("6")){
+                switch (cm.getDay_code().toUpperCase()) {
+                    case "MON":
+                        timeTableArr[6][1] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+                    case "TUES":
+                        timeTableArr[6][2] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+                    case "WED":
+                        timeTableArr[6][3] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+                    case "THURS":
+                        timeTableArr[6][4] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+                    case "FRI":
+                        timeTableArr[6][5] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+
+                }
             }
         }
 
