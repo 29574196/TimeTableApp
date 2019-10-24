@@ -108,7 +108,7 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_dailyview, R.id.nav_dashboard, R.id.nav_notes,
+                R.id.nav_dashboard, R.id.nav_notes,
                 R.id.nav_module, R.id.nav_share)
                 .setDrawerLayout(drawer)
                 .build();
@@ -357,11 +357,7 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
                         startActivity(h);
                 finish();
                         break;
-            case R.id.nav_dailyview:
-                Intent i = new Intent(FrontPage.this,DailyView.class);
-                startActivity(i);
-                finish();
-                break;
+
             case R.id.nav_notes:
                 Intent j = new Intent(FrontPage.this,Notes.class);
                 startActivity(j);

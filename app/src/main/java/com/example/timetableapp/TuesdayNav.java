@@ -58,7 +58,7 @@ public class TuesdayNav extends AppCompatActivity implements NavigationView.OnNa
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_dailyview, R.id.nav_dashboard, R.id.nav_notes
+                R.id.nav_dashboard, R.id.nav_notes
                 ,R.id.nav_mon,R.id.nav_tue,R.id.nav_wes,R.id.nav_thu,R.id.nav_fri)
                 .setDrawerLayout(drawer)
                 .build();
@@ -106,15 +106,11 @@ public class TuesdayNav extends AppCompatActivity implements NavigationView.OnNa
         {
 
             case R.id.nav_dashboard:
-                Intent h = new Intent(TuesdayNav.this,Dashboard.class);
+                Intent h = new Intent(TuesdayNav.this,FrontPage.class);
                 startActivity(h);
                 finish();
                 break;
-            case R.id.nav_dailyview:
-                Intent i = new Intent(TuesdayNav.this,DailyView.class);
-                startActivity(i);
-                finish();
-                break;
+
             case R.id.nav_notes:
                 Intent j = new Intent(TuesdayNav.this,Notes.class);
                 startActivity(j);

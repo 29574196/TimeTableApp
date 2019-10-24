@@ -104,15 +104,12 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         {
 
             case R.id.nav_dashboard:
-                Intent h = new Intent(Dashboard.this,Dashboard.class);
+                Intent h = new Intent(Dashboard.this,FrontPage.class);
                 startActivity(h);
                 finish();
                 break;
-            case R.id.nav_dailyview:
-                Intent i = new Intent(Dashboard.this,DailyView.class);
-                startActivity(i);
-                finish();
-                break;
+
+
             case R.id.nav_notes:
                 Intent j = new Intent(Dashboard.this,Notes.class);
                 startActivity(j);

@@ -28,7 +28,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.view.Menu;
 
-public class Notes extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, Tab1.OnFragmentInteractionListener,Tab2.OnFragmentInteractionListener,Tab3.OnFragmentInteractionListener,Tab4.OnFragmentInteractionListener{
+public class Notes extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -43,51 +43,9 @@ public class Notes extends AppCompatActivity implements NavigationView.OnNavigat
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        TabLayout tablelayout = (TabLayout) findViewById(R.id.tablayout);
-        tablelayout.addTab(tablelayout.newTab().setText("Mon"));
-        tablelayout.addTab(tablelayout.newTab().setText("Tue"));
-        tablelayout.addTab(tablelayout.newTab().setText("Wed"));
-        tablelayout.addTab(tablelayout.newTab().setText("Thu"));
-        tablelayout.setTabGravity(TabLayout.GRAVITY_FILL);
-
-        final ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-        final PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(),tablelayout.getTabCount());
-        viewPager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tablelayout));
-
-        tablelayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-                switch (tab.getPosition())
-                {
-                    case 0:
-                        Intent tab1 = new Intent(Notes.this,Tab1.class);
-                        startActivity(tab1);
-                        finish();
-                        break;
-
-                    case 1:
-                        Intent tab2 = new Intent(Notes.this,Tab2.class);
-                        startActivity(tab2);
-                        finish();
-                        break;
 
 
 
-
-                }
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -106,7 +64,7 @@ public class Notes extends AppCompatActivity implements NavigationView.OnNavigat
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_dailyview, R.id.nav_dashboard, R.id.nav_notes
+                R.id.nav_dashboard, R.id.nav_notes
                 ,R.id.nav_mon,R.id.nav_tue,R.id.nav_wes,R.id.nav_thu,R.id.nav_fri)
                 .setDrawerLayout(drawer)
                 .build();
@@ -132,15 +90,11 @@ public class Notes extends AppCompatActivity implements NavigationView.OnNavigat
         {
 
             case R.id.nav_dashboard:
-                Intent h = new Intent(Notes.this,Dashboard.class);
+                Intent h = new Intent(Notes.this,FrontPage.class);
                 startActivity(h);
                 finish();
                 break;
-            case R.id.nav_dailyview:
-                Intent i = new Intent(Notes.this,DailyView.class);
-                startActivity(i);
-                finish();
-                break;
+
             case R.id.nav_notes:
                 Intent j = new Intent(Notes.this,Notes.class);
                 startActivity(j);
@@ -185,8 +139,5 @@ public class Notes extends AppCompatActivity implements NavigationView.OnNavigat
     }
 
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
 
-    }
 }
