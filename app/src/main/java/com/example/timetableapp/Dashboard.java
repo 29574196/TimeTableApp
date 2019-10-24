@@ -109,7 +109,11 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 finish();
                 break;
 
-
+            case R.id.nav_module:
+                Intent mod = new Intent(Dashboard.this,Module.class);
+                startActivity(mod);
+                finish();
+                break;
             case R.id.nav_notes:
                 Intent j = new Intent(Dashboard.this,Notes.class);
                 startActivity(j);

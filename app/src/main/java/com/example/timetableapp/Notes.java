@@ -95,6 +95,12 @@ public class Notes extends AppCompatActivity implements NavigationView.OnNavigat
                 finish();
                 break;
 
+            case R.id.nav_module:
+                Intent mod = new Intent(Notes.this,Module.class);
+                startActivity(mod);
+                finish();
+                break;
+
             case R.id.nav_notes:
                 Intent j = new Intent(Notes.this,Notes.class);
                 startActivity(j);
