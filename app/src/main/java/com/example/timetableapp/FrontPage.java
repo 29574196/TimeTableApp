@@ -164,95 +164,95 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
             if (cm.getTime_slot().equals("1")) {
                 switch (cm.getDay_code().toUpperCase()) {
                     case "MON":
-                        timeTableArr[1][1] = cm.getModule_code();
+                        timeTableArr[1][1] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
                         break;
                     case "TUES":
-                        timeTableArr[1][2] = cm.getModule_code();
+                        timeTableArr[1][2] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
                         break;
                     case "WED":
-                        timeTableArr[1][3] = cm.getModule_code();
+                        timeTableArr[1][3] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
                         break;
                     case "THURS":
-                        timeTableArr[1][4] = cm.getModule_code();
+                        timeTableArr[1][4] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
                         break;
                     case "FRI":
-                        timeTableArr[1][5] = cm.getModule_code();
+                        timeTableArr[1][5] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
                         break;
 
                 }
             } else if(cm.getTime_slot().equals("2")){
                 switch (cm.getDay_code().toUpperCase()) {
                     case "MON":
-                        timeTableArr[2][1] = cm.getModule_code();
+                        timeTableArr[2][1] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
                         break;
                     case "TUES":
-                        timeTableArr[2][2] = cm.getModule_code();
+                        timeTableArr[2][2] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
                         break;
                     case "WED":
-                        timeTableArr[2][3] = cm.getModule_code();
+                        timeTableArr[2][3] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
                         break;
                     case "THURS":
-                        timeTableArr[2][4] = cm.getModule_code();
+                        timeTableArr[2][4] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
                         break;
                     case "FRI":
-                        timeTableArr[2][5] = cm.getModule_code();
+                        timeTableArr[2][5] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
                         break;
 
                 }
             } else if(cm.getTime_slot().equals("3")){
                 switch (cm.getDay_code().toUpperCase()) {
                     case "MON":
-                        timeTableArr[3][1] = cm.getModule_code();
+                        timeTableArr[3][1] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
                         break;
                     case "TUES":
-                        timeTableArr[3][2] = cm.getModule_code();
+                        timeTableArr[3][2] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
                         break;
                     case "WED":
-                        timeTableArr[3][3] = cm.getModule_code();
+                        timeTableArr[3][3] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
                         break;
                     case "THURS":
-                        timeTableArr[3][4] = cm.getModule_code();
+                        timeTableArr[3][4] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
                         break;
                     case "FRI":
-                        timeTableArr[3][5] = cm.getModule_code();
+                        timeTableArr[3][5] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
                         break;
 
                 }
             } else if(cm.getTime_slot().equals("4")) {
                 switch (cm.getDay_code().toUpperCase()) {
                     case "MON":
-                        timeTableArr[4][1] = cm.getModule_code();
+                        timeTableArr[4][1] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
                         break;
                     case "TUES":
-                        timeTableArr[4][2] = cm.getModule_code();
+                        timeTableArr[4][2] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
                         break;
                     case "WED":
-                        timeTableArr[4][3] = cm.getModule_code();
+                        timeTableArr[4][3] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
                         break;
                     case "THURS":
-                        timeTableArr[4][4] = cm.getModule_code();
+                        timeTableArr[4][4] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
                         break;
                     case "FRI":
-                        timeTableArr[4][5] = cm.getModule_code();
+                        timeTableArr[4][5] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
                         break;
 
                 }
             }else if(cm.getTime_slot().equals("5")){
                 switch (cm.getDay_code().toUpperCase()) {
                     case "MON":
-                        timeTableArr[5][1] = cm.getModule_code();
+                        timeTableArr[5][1] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
                         break;
                     case "TUES":
-                        timeTableArr[5][2] = cm.getModule_code();
+                        timeTableArr[5][2] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
                         break;
                     case "WED":
-                        timeTableArr[5][3] = cm.getModule_code();
+                        timeTableArr[5][3] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
                         break;
                     case "THURS":
-                        timeTableArr[5][4] = cm.getModule_code();
+                        timeTableArr[5][4] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
                         break;
                     case "FRI":
-                        timeTableArr[5][5] = cm.getModule_code();
+                        timeTableArr[5][5] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
                         break;
 
                 }
@@ -297,15 +297,15 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
         t.setStretchAllColumns(true);
         t.bringToFront();
 
+        TableRow.LayoutParams l = new TableRow.LayoutParams(50,260);
         for(int r = 0;r <= 6;r++)
         {
             TableRow row= new TableRow(this);
-
             for(int c = 0;c<=5;c++)
             {
                 TextView tempCol = new TextView(this);
                 tempCol.setText(timeTableArr[r][c]);
-                row.addView(tempCol);
+                row.addView(tempCol,l);
             }
             t.addView(row);
         }
