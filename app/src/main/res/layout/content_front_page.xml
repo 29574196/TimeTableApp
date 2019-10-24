@@ -21,11 +21,12 @@
 
       <TableLayout
           android:layout_width="match_parent"
-          android:layout_height="wrap_content">
+          android:layout_height="wrap_content"
+          android:id = "@+id/timetable">
 
          //////////////// Time ZOne layout/////////////////////
 
-         <TableRow>
+         <!--<TableRow>
 
             <TextView
                 android:layout_width="40dp"
@@ -511,7 +512,7 @@
                 android:textStyle="bold" />
 
 
-         </TableRow>
+         </TableRow>-->
 
 
       </TableLayout>
