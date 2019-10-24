@@ -1,6 +1,7 @@
 package com.example.timetableapp;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -37,6 +38,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.R.color;
 
 import com.example.timetableapp.Retrofit.ClassModel;
 import com.example.timetableapp.Retrofit.INodeJS;
@@ -113,7 +115,7 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
 
         //********************************************************
         Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl("http://143.160.106.20:3000/")
+                .baseUrl("http://196.252.252.110:3000/")
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit = builder.build();
@@ -135,15 +137,6 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
 
                 classList = response.body();
 
-                /*String s="";
-                for(ClassModel c : classList)
-                {
-                    s += "  " +  c.getModule_code();
-
-                    //creating new activity
-                }*/
-                //Test to see if data was retrieved successfully
-               // Toast.makeText(FrontPage.this, "Uhm : " + s, Toast.LENGTH_SHORT).show();
                 initArr();
                 populateFree(classList);
                 addTable();
@@ -298,13 +291,21 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
         t.bringToFront();
 
         TableRow.LayoutParams l = new TableRow.LayoutParams(50,260);
+
         for(int r = 0;r <= 6;r++)
         {
             TableRow row= new TableRow(this);
+
             for(int c = 0;c<=5;c++)
             {
                 TextView tempCol = new TextView(this);
                 tempCol.setText(timeTableArr[r][c]);
+                if(c==0||r==0) {
+                    tempCol.setBackgroundColor(Color.GRAY);
+                }else if(r%2 == 0)
+                {
+                    tempCol.setBackgroundResource(R.color.gradientStop);
+                }
                 row.addView(tempCol,l);
             }
             t.addView(row);

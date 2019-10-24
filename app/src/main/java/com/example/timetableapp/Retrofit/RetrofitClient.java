@@ -9,7 +9,7 @@ public class RetrofitClient {
     public static Retrofit getInstance(){
         if(instance == null)
             instance = new Retrofit.Builder()
-                    .baseUrl("http://143.160.106.20:3000/")
+                    .baseUrl("http://196.252.252.110:3000/")
                     .addConverterFactory(ScalarsConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .build();
