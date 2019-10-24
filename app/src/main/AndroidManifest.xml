@@ -14,9 +14,13 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Module"
+            android:label="@string/title_activity_module"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".FridayNav"
             android:label="@string/title_activity_friday_nav"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ThursdayNav"
             android:label="@string/title_activity_thursday_nav"

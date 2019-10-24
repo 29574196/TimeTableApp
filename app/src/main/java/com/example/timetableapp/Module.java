@@ -26,7 +26,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 
-public class MondayNav extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class Module extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -37,8 +37,8 @@ public class MondayNav extends AppCompatActivity implements NavigationView.OnNav
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_monday_nav);
-         toolbar = findViewById(R.id.toolbar);
+        setContentView(R.layout.activity_module);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -48,9 +48,8 @@ public class MondayNav extends AppCompatActivity implements NavigationView.OnNav
                         .setAction("Action", null).show();
             }
         });
-         drawer = findViewById(R.id.drawer_layout);
-         navigationView = findViewById(R.id.nav_view);
         drawer = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this,drawer,toolbar,R.string.open,R.string.close);
         toggle.syncState();
@@ -59,7 +58,7 @@ public class MondayNav extends AppCompatActivity implements NavigationView.OnNav
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                 R.id.nav_dashboard, R.id.nav_notes,R.id.nav_module
+                R.id.nav_dashboard, R.id.nav_notes,R.id.nav_module
                 ,R.id.nav_mon,R.id.nav_tue,R.id.nav_wes,R.id.nav_thu,R.id.nav_fri)
                 .setDrawerLayout(drawer)
                 .build();
@@ -105,45 +104,52 @@ public class MondayNav extends AppCompatActivity implements NavigationView.OnNav
         {
 
             case R.id.nav_dashboard:
-                Intent h = new Intent(MondayNav.this,FrontPage.class);
+                Intent h = new Intent(Module.this,FrontPage.class);
                 startActivity(h);
                 finish();
                 break;
 
 
+            case R.id.nav_module:
+                Intent mod = new Intent(Module.this,Module.class);
+                startActivity(mod);
+                finish();
+                break;
+
+
             case R.id.nav_notes:
-                Intent j = new Intent(MondayNav.this,Notes.class);
+                Intent j = new Intent(Module.this,Notes.class);
                 startActivity(j);
                 finish();
                 break;
 
             case R.id.nav_mon:
-                Intent mon = new Intent(MondayNav.this,MondayNav.class);
+                Intent mon = new Intent(Module.this,MondayNav.class);
                 startActivity(mon);
                 finish();
                 break;
 
             case R.id.nav_tue:
-                Intent tue = new Intent(MondayNav.this,TuesdayNav.class);
+                Intent tue = new Intent(Module.this,TuesdayNav.class);
                 startActivity(tue);
                 finish();
                 break;
 
             case R.id.nav_wes:
-                Intent wes = new Intent(MondayNav.this,WednesdayNav.class);
+                Intent wes = new Intent(Module.this,WednesdayNav.class);
                 startActivity(wes);
                 finish();
                 break;
 
             case R.id.nav_thu:
-                Intent thu = new Intent(MondayNav.this,ThursdayNav.class);
+                Intent thu = new Intent(Module.this,ThursdayNav.class);
                 startActivity(thu);
                 finish();
                 break;
 
 
             case R.id.nav_fri:
-                Intent fri = new Intent(MondayNav.this,FridayNav.class);
+                Intent fri = new Intent(Module.this,FridayNav.class);
                 startActivity(fri);
                 finish();
                 break;
