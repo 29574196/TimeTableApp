@@ -48,6 +48,13 @@ public class Module extends AppCompatActivity implements NavigationView.OnNaviga
         mod_Btn = (Button) findViewById(R.id.mod_btn);
         module_Edit = (EditText) findViewById(R.id.mod_edit);
 
+        mod_Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                module_Edit.getText().toString();
+            }
+        });
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
