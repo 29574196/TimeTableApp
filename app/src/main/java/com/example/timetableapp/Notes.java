@@ -27,6 +27,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
 import android.view.Menu;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class Notes extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -36,6 +38,9 @@ public class Notes extends AppCompatActivity implements NavigationView.OnNavigat
     private Toolbar toolbar =null;
     private DrawerLayout drawer;
 
+    private EditText module_Edit;
+    private Button mod_Btn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +48,15 @@ public class Notes extends AppCompatActivity implements NavigationView.OnNavigat
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        mod_Btn = (Button) findViewById(R.id.mod_btn);
+        module_Edit = (EditText) findViewById(R.id.mod_edit);
 
+        mod_Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                module_Edit.getText().toString();
+            }
+        });
 
 
 
