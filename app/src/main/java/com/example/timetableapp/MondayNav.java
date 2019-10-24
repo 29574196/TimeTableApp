@@ -144,7 +144,7 @@ public class MondayNav extends AppCompatActivity implements NavigationView.OnNav
 
                 LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, setSize(65));
                 params.setMargins(setSize(10),setSize(10),setSize(10),setSize(10));
-
+                //
                 card.setLayoutParams(params);
 
                 card.setBackgroundResource(R.drawable.bg1);
