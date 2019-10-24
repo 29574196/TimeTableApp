@@ -25,6 +25,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class Module extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -33,6 +35,8 @@ public class Module extends AppCompatActivity implements NavigationView.OnNaviga
     private NavigationView navigationView;
     private Toolbar toolbar =null;
     private DrawerLayout drawer;
+    private EditText module_Edit;
+    private Button mod_Btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,10 @@ public class Module extends AppCompatActivity implements NavigationView.OnNaviga
         setContentView(R.layout.activity_module);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mod_Btn = (Button) findViewById(R.id.mod_btn);
+        module_Edit = (EditText) findViewById(R.id.mod_edit);
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
