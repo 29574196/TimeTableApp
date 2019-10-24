@@ -12,7 +12,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="173dp"
+        android:layout_height="100dp"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"
         android:layout_marginRight="30dp"
@@ -43,9 +43,18 @@
                         android:layout_height="wrap_content"
                         android:text="Itrw322"
                         android:textColor="@color/white"
-                        android:textSize="24sp" />
+                        android:textSize="27sp" />
 
                     <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="E8-G42"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+
+                    <TextView
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="09:30"
@@ -98,6 +107,15 @@
                         android:textSize="24sp" />
 
                     <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="E8-G42"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+
+                    <TextView
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="09:30"
@@ -150,6 +168,15 @@
                         android:textSize="24sp" />
 
                     <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="E8-G42"
+                        android:textColor="@color/white"
+                        android:textSize="20sp" />
+
+                    <TextView
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="09:30"

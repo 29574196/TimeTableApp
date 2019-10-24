@@ -115,7 +115,7 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
 
         //********************************************************
         Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl("http://196.252.252.110:3000/")
+                .baseUrl("http://143.160.106.53:3000/")
                 .addConverterFactory(GsonConverterFactory.create());
 
         Retrofit retrofit = builder.build();
