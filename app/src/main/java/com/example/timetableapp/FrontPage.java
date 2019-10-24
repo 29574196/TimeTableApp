@@ -300,11 +300,12 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
             {
                 TextView tempCol = new TextView(this);
                 tempCol.setText(timeTableArr[r][c]);
-                if(c==0||r==0) {
-                    tempCol.setBackgroundColor(Color.GRAY);
-                }else if(r%2 == 0)
+                if(r%2 == 0)
                 {
-                    tempCol.setBackgroundResource(R.color.gradientStop);
+                    tempCol.setBackgroundColor(Color.LTGRAY);
+                }
+                if (c==0||r==0) {
+                    tempCol.setTextSize(15);
                 }
                 row.addView(tempCol,l);
             }
@@ -313,6 +314,14 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
         //layout.addView(t);
     }
 
+    public String[][] getArr(){
+        return timeTableArr;
+    }
+
+    public List<ClassModel> getClassList()
+    {
+        return classList;
+    }
     //*******************************************************************************************
 
     @Override

@@ -30,4 +30,11 @@ public interface INodeJS {
         @GET("class/{student}")
         Call <List<ClassModel>> getClassInfo(@Path("student")String student);
 
+        @POST("modules")
+        @FormUrlEncoded
+        Observable <String> addModule(
+                @Field("add_student") String student,
+                @Field("add_module") String module
+                );
+
 }
