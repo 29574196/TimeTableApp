@@ -1,7 +1,9 @@
 package com.example.timetableapp;
 
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.TaskStackBuilder;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -16,7 +18,7 @@ public class MyAlarm extends BroadcastReceiver {
 
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
-        Intent intent1 = new Intent(context,Notes.class);
+        Intent intent1 = new Intent(context,Appointment.class);
         intent1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
         PendingIntent pendingIntent = PendingIntent.getActivity(context,100,intent1,PendingIntent.FLAG_UPDATE_CURRENT);
@@ -32,5 +34,6 @@ public class MyAlarm extends BroadcastReceiver {
 
         MediaPlayer mediaPlayer = MediaPlayer.create(context, Settings.System.DEFAULT_RINGTONE_URI);
         mediaPlayer.start();
+
     }
 }

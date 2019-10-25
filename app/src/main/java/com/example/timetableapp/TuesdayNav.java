@@ -54,6 +54,8 @@ public class TuesdayNav extends AppCompatActivity implements NavigationView.OnNa
     private String [][] timeTableArr;
     private List<ClassModel> classList;
 
+    private String student;
+
     INodeJS myAPI;
     CompositeDisposable compositeDisposable = new CompositeDisposable();
 
@@ -94,7 +96,7 @@ public class TuesdayNav extends AppCompatActivity implements NavigationView.OnNa
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_dashboard, R.id.nav_notes
+                R.id.nav_dashboard, R.id.nav_notes,R.id.nav_appointment,R.id.nav_module
                 ,R.id.nav_mon,R.id.nav_tue,R.id.nav_wes,R.id.nav_thu,R.id.nav_fri)
                 .setDrawerLayout(drawer)
                 .build();
@@ -107,7 +109,10 @@ public class TuesdayNav extends AppCompatActivity implements NavigationView.OnNa
         Retrofit retrofit = builder.build();
         myAPI = retrofit.create(INodeJS.class);
         //********************************************************
+        student = getIntent().getStringExtra("student");
+
         getClasses();
+
 
     }
 
@@ -230,7 +235,7 @@ public class TuesdayNav extends AppCompatActivity implements NavigationView.OnNa
     //method to call api and get class information
     public void getClasses()
     {
-        Call<List<ClassModel>> call = myAPI.getClassInfo("12121212");
+        Call<List<ClassModel>> call = myAPI.getClassInfo(student);
 
         //Toast.makeText(FrontPage.this, "Uhm : hey" , Toast.LENGTH_SHORT).show();
 
@@ -294,41 +299,55 @@ public class TuesdayNav extends AppCompatActivity implements NavigationView.OnNa
 
             case R.id.nav_dashboard:
                 Intent h = new Intent(TuesdayNav.this,FrontPage.class);
+                h.putExtra("student",student);
                 startActivity(h);
                 finish();
                 break;
 
             case R.id.nav_notes:
                 Intent j = new Intent(TuesdayNav.this,Notes.class);
+                j.putExtra("student",student);
                 startActivity(j);
                 finish();
                 break;
             case R.id.nav_module:
                 Intent mod = new Intent(TuesdayNav.this,Module.class);
+                mod.putExtra("student",student);
                 startActivity(mod);
+                finish();
+                break;
+
+            case R.id.nav_appointment:
+                Intent app = new Intent(TuesdayNav.this,Appointment.class);
+                app.putExtra("student",student);
+                startActivity(app);
                 finish();
                 break;
 
             case R.id.nav_mon:
                 Intent mon = new Intent(TuesdayNav.this,MondayNav.class);
+                mon.putExtra("student",student);
                 startActivity(mon);
                 finish();
                 break;
 
             case R.id.nav_tue:
                 Intent tue = new Intent(TuesdayNav.this,TuesdayNav.class);
+                tue.putExtra("student",student);
                 startActivity(tue);
                 finish();
                 break;
 
             case R.id.nav_wes:
                 Intent wes = new Intent(TuesdayNav.this,WednesdayNav.class);
+                wes.putExtra("student",student);
                 startActivity(wes);
                 finish();
                 break;
 
             case R.id.nav_thu:
                 Intent thu = new Intent(TuesdayNav.this,ThursdayNav.class);
+                thu.putExtra("student",student);
                 startActivity(thu);
                 finish();
                 break;
@@ -336,6 +355,7 @@ public class TuesdayNav extends AppCompatActivity implements NavigationView.OnNa
 
             case R.id.nav_fri:
                 Intent fri = new Intent(TuesdayNav.this,FridayNav.class);
+                fri.putExtra("student",student);
                 startActivity(fri);
                 finish();
                 break;

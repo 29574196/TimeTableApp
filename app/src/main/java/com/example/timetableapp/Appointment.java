@@ -48,6 +48,7 @@ public class Appointment extends AppCompatActivity implements NavigationView.OnN
     private Button appnotification_Btn;
 
     private TimePicker apptime;
+    private String student;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,8 +74,8 @@ public class Appointment extends AppCompatActivity implements NavigationView.OnN
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
-                R.id.nav_tools, R.id.nav_share, R.id.nav_appointment,R.id.nav_send)
+                R.id.nav_dashboard, R.id.nav_notes,R.id.nav_appointment,R.id.nav_module
+                ,R.id.nav_mon,R.id.nav_tue,R.id.nav_wes,R.id.nav_thu,R.id.nav_fri)
                 .setDrawerLayout(drawer)
                 .build();
 
@@ -83,6 +84,8 @@ public class Appointment extends AppCompatActivity implements NavigationView.OnN
         app_Edit = (EditText) findViewById(R.id.appoint_edit);
 
         appnotification_Btn = (Button) findViewById(R.id.appnotification_btn);
+
+        student = getIntent().getStringExtra("student");
 
         appnotification_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,7 +141,7 @@ public class Appointment extends AppCompatActivity implements NavigationView.OnN
         alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, timeInMillis, AlarmManager.INTERVAL_DAY, pendingIntent);
 
 
-        Toast.makeText(this, "Alarm is set!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Notification and Alarm set!", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -181,26 +184,68 @@ public class Appointment extends AppCompatActivity implements NavigationView.OnN
 
             case R.id.nav_dashboard:
                 Intent h = new Intent(Appointment.this,FrontPage.class);
+                h.putExtra("student",student);
                 startActivity(h);
                 finish();
                 break;
 
             case R.id.nav_appointment:
                 Intent a = new Intent(Appointment.this,Appointment.class);
+                a.putExtra("student",student);
                 startActivity(a);
                 finish();
                 break;
 
             case R.id.nav_module:
                 Intent mod = new Intent(Appointment.this,Module.class);
+                mod.putExtra("student",student);
                 startActivity(mod);
                 finish();
                 break;
             case R.id.nav_notes:
                 Intent j = new Intent(Appointment.this,Notes.class);
+                j.putExtra("student",student);
                 startActivity(j);
                 finish();
                 break;
+
+            case R.id.nav_mon:
+                Intent mon = new Intent(Appointment.this,MondayNav.class);
+                mon.putExtra("student",student);
+                startActivity(mon);
+                finish();
+                break;
+
+            case R.id.nav_tue:
+                Intent tue = new Intent(Appointment.this,TuesdayNav.class);
+                tue.putExtra("student",student);
+                startActivity(tue);
+                finish();
+                break;
+
+            case R.id.nav_wes:
+                Intent wes = new Intent(Appointment.this,WednesdayNav.class);
+                wes.putExtra("student",student);
+                startActivity(wes);
+                finish();
+                break;
+
+            case R.id.nav_thu:
+                Intent thu = new Intent(Appointment.this,ThursdayNav.class);
+                thu.putExtra("student",student);
+                startActivity(thu);
+                finish();
+                break;
+
+
+            case R.id.nav_fri:
+                Intent fri = new Intent(Appointment.this,FridayNav.class);
+                fri.putExtra("student",student);
+                startActivity(fri);
+                finish();
+                break;
+
+
         }
 
 

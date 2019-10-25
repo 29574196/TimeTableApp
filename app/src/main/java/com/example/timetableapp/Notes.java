@@ -51,7 +51,7 @@ public class Notes extends AppCompatActivity implements NavigationView.OnNavigat
     private EditText notes_Edit;
     private Button notes_Btn;
     private Button notification_Btn;
-    private NotificationManager notificationManager;
+
 
     private String student;
 
@@ -64,46 +64,12 @@ public class Notes extends AppCompatActivity implements NavigationView.OnNavigat
         setSupportActionBar(toolbar);
 
 
-        timePicker = (TimePicker) findViewById(R.id.timepicker);
+
         notes_Btn = (Button) findViewById(R.id.notes_btn);
         notes_Edit = (EditText) findViewById(R.id.notes_edit);
 
-        notification_Btn = (Button) findViewById(R.id.notification_btn);
 
-        notification_Btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Calendar calendar = Calendar.getInstance();
 
-                if(Build.VERSION.SDK_INT>=23)
-                {
-                    calendar.set(
-                            calendar.get(Calendar.YEAR),
-                            calendar.get(Calendar.MONTH),
-                            calendar.get(Calendar.DAY_OF_MONTH),
-                            timePicker.getHour(),
-                            timePicker.getMinute(),
-                            0
-
-                    );
-                }
-                else
-                {
-                    calendar.set(
-                            calendar.get(Calendar.YEAR),
-                            calendar.get(Calendar.MONTH),
-                            calendar.get(Calendar.DAY_OF_MONTH),
-                            timePicker.getCurrentHour(),
-                            timePicker.getCurrentMinute(),
-                            0
-
-                    );
-                }
-
-                setAlarm(calendar.getTimeInMillis());
-
-            }
-        });
 
         notes_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,7 +97,7 @@ public class Notes extends AppCompatActivity implements NavigationView.OnNavigat
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_dashboard, R.id.nav_notes
+                R.id.nav_dashboard, R.id.nav_notes,R.id.nav_appointment,R.id.nav_module
                 ,R.id.nav_mon,R.id.nav_tue,R.id.nav_wes,R.id.nav_thu,R.id.nav_fri)
                 .setDrawerLayout(drawer)
                 .build();
@@ -140,19 +106,7 @@ public class Notes extends AppCompatActivity implements NavigationView.OnNavigat
 
     }
 
-    private void setAlarm(long timeInMillis)
-    {
 
-        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(this, MyAlarm.class);
-
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(this,100,intent,PendingIntent.FLAG_UPDATE_CURRENT);
-
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,timeInMillis,AlarmManager.INTERVAL_DAY,pendingIntent);
-
-
-        Toast.makeText(this, "Alarm is set!", Toast.LENGTH_SHORT).show();
-    }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -183,6 +137,12 @@ public class Notes extends AppCompatActivity implements NavigationView.OnNavigat
                 Intent mod = new Intent(Notes.this,Module.class);
                 mod.putExtra("student",student);
                 startActivity(mod);
+                finish();
+                break;
+            case R.id.nav_appointment:
+                Intent app = new Intent(Notes.this,Appointment.class);
+                app.putExtra("student",student);
+                startActivity(app);
                 finish();
                 break;
 

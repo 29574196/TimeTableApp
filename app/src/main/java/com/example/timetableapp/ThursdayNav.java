@@ -53,6 +53,7 @@ public class ThursdayNav extends AppCompatActivity implements NavigationView.OnN
 
     private String [][] timeTableArr;
     private List<ClassModel> classList;
+    private String student;
 
     INodeJS myAPI;
     CompositeDisposable compositeDisposable = new CompositeDisposable();
@@ -74,6 +75,9 @@ public class ThursdayNav extends AppCompatActivity implements NavigationView.OnN
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thursday_nav);
         toolbar = findViewById(R.id.toolbar);
+
+
+
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -93,11 +97,12 @@ public class ThursdayNav extends AppCompatActivity implements NavigationView.OnN
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_dashboard, R.id.nav_notes
+                R.id.nav_dashboard, R.id.nav_notes,R.id.nav_appointment,R.id.nav_module
                 ,R.id.nav_mon,R.id.nav_tue,R.id.nav_wes,R.id.nav_thu,R.id.nav_fri)
                 .setDrawerLayout(drawer)
                 .build();
 
+        student = getIntent().getStringExtra("student");
         //********************************************************
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl("http://196.252.252.110:3000/")
@@ -106,6 +111,7 @@ public class ThursdayNav extends AppCompatActivity implements NavigationView.OnN
         Retrofit retrofit = builder.build();
         myAPI = retrofit.create(INodeJS.class);
         //********************************************************
+        student = getIntent().getStringExtra("student");
         getClasses();
     }
 
@@ -308,7 +314,7 @@ public class ThursdayNav extends AppCompatActivity implements NavigationView.OnN
 
     public void getClasses()
     {
-        Call<List<ClassModel>> call = myAPI.getClassInfo("12121212");
+        Call<List<ClassModel>> call = myAPI.getClassInfo(student);
 
         //Toast.makeText(FrontPage.this, "Uhm : hey" , Toast.LENGTH_SHORT).show();
 
@@ -371,42 +377,56 @@ public class ThursdayNav extends AppCompatActivity implements NavigationView.OnN
 
             case R.id.nav_dashboard:
                 Intent h = new Intent(ThursdayNav.this,FrontPage.class);
+                h.putExtra("student",student);
                 startActivity(h);
                 finish();
                 break;
 
             case R.id.nav_module:
                 Intent mod = new Intent(ThursdayNav.this,Module.class);
+                mod.putExtra("student",student);
                 startActivity(mod);
+                finish();
+                break;
+
+            case R.id.nav_appointment:
+                Intent app = new Intent(ThursdayNav.this,Appointment.class);
+                app.putExtra("student",student);
+                startActivity(app);
                 finish();
                 break;
 
             case R.id.nav_notes:
                 Intent j = new Intent(ThursdayNav.this,Notes.class);
+                j.putExtra("student",student);
                 startActivity(j);
                 finish();
                 break;
 
             case R.id.nav_mon:
                 Intent mon = new Intent(ThursdayNav.this,MondayNav.class);
+                mon.putExtra("student",student);
                 startActivity(mon);
                 finish();
                 break;
 
             case R.id.nav_tue:
                 Intent tue = new Intent(ThursdayNav.this,TuesdayNav.class);
+                tue.putExtra("student",student);
                 startActivity(tue);
                 finish();
                 break;
 
             case R.id.nav_wes:
                 Intent wes = new Intent(ThursdayNav.this,WednesdayNav.class);
+                wes.putExtra("student",student);
                 startActivity(wes);
                 finish();
                 break;
 
             case R.id.nav_thu:
                 Intent thu = new Intent(ThursdayNav.this,ThursdayNav.class);
+                thu.putExtra("student",student);
                 startActivity(thu);
                 finish();
                 break;
@@ -414,6 +434,7 @@ public class ThursdayNav extends AppCompatActivity implements NavigationView.OnN
 
             case R.id.nav_fri:
                 Intent fri = new Intent(ThursdayNav.this,FridayNav.class);
+                fri.putExtra("student",student);
                 startActivity(fri);
                 finish();
                 break;
