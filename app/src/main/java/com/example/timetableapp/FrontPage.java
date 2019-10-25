@@ -113,6 +113,7 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
                 .setDrawerLayout(drawer)
                 .build();
 
+        //new client builder and altered to convert json
         //********************************************************
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl("http://196.252.252.110:3000/")
