@@ -59,6 +59,7 @@ public class LoginActivity extends AppCompatActivity {
         textInputPassword = findViewById(R.id.pass_EditText);
         //
 
+
     }
 
     private boolean validateStudentNumber()
@@ -117,6 +118,7 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(LoginActivity.this, "Successful login  ", Toast.LENGTH_SHORT).show();
                             //creating new activity
                             Intent frontP = new Intent(LoginActivity.this, FrontPage.class);
+                            frontP.putExtra("student",student);
                             startActivity(frontP);
                             finish();
                         } else {
