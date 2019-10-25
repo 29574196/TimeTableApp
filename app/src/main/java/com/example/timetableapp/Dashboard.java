@@ -31,6 +31,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
     private NavigationView navigationView;
     private Toolbar toolbar =null;
     private DrawerLayout drawer;
+    private String student;
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -61,6 +62,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 ,R.id.nav_mon,R.id.nav_tue,R.id.nav_wes,R.id.nav_thu,R.id.nav_fri)
                 .setDrawerLayout(drawer)
                 .build();
+        student = getIntent().getStringExtra("student");
 
     }
 
@@ -105,17 +107,20 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
 
             case R.id.nav_dashboard:
                 Intent h = new Intent(Dashboard.this,FrontPage.class);
+                h.putExtra("student",student);
                 startActivity(h);
                 finish();
                 break;
 
             case R.id.nav_module:
                 Intent mod = new Intent(Dashboard.this,Module.class);
+                mod.putExtra("student",student);
                 startActivity(mod);
                 finish();
                 break;
             case R.id.nav_notes:
                 Intent j = new Intent(Dashboard.this,Notes.class);
+                j.putExtra("student",student);
                 startActivity(j);
                 finish();
                 break;

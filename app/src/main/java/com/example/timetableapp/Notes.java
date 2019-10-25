@@ -53,6 +53,8 @@ public class Notes extends AppCompatActivity implements NavigationView.OnNavigat
     private Button notification_Btn;
     private NotificationManager notificationManager;
 
+    private String student;
+
     private TimePicker timePicker;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,6 +136,8 @@ public class Notes extends AppCompatActivity implements NavigationView.OnNavigat
                 .setDrawerLayout(drawer)
                 .build();
 
+        student = getIntent().getStringExtra("student");
+
     }
 
     private void setAlarm(long timeInMillis)
@@ -170,42 +174,49 @@ public class Notes extends AppCompatActivity implements NavigationView.OnNavigat
 
             case R.id.nav_dashboard:
                 Intent h = new Intent(Notes.this,FrontPage.class);
+                h.putExtra("student",student);
                 startActivity(h);
                 finish();
                 break;
 
             case R.id.nav_module:
                 Intent mod = new Intent(Notes.this,Module.class);
+                mod.putExtra("student",student);
                 startActivity(mod);
                 finish();
                 break;
 
             case R.id.nav_notes:
                 Intent j = new Intent(Notes.this,Notes.class);
+                j.putExtra("student",student);
                 startActivity(j);
                 finish();
                 break;
 
             case R.id.nav_mon:
                 Intent mon = new Intent(Notes.this,MondayNav.class);
+                mon.putExtra("student",student);
                 startActivity(mon);
                 finish();
                 break;
 
             case R.id.nav_tue:
                 Intent tue = new Intent(Notes.this,TuesdayNav.class);
+                tue.putExtra("student",student);
                 startActivity(tue);
                 finish();
                 break;
 
             case R.id.nav_wes:
                 Intent wes = new Intent(Notes.this,WednesdayNav.class);
+                wes.putExtra("student",student);
                 startActivity(wes);
                 finish();
                 break;
 
             case R.id.nav_thu:
                 Intent thu = new Intent(Notes.this,ThursdayNav.class);
+                thu.putExtra("student",student);
                 startActivity(thu);
                 finish();
                 break;
@@ -213,6 +224,7 @@ public class Notes extends AppCompatActivity implements NavigationView.OnNavigat
 
             case R.id.nav_fri:
                 Intent fri = new Intent(Notes.this,FridayNav.class);
+                fri.putExtra("student",student);
                 startActivity(fri);
                 finish();
                 break;
