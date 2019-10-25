@@ -64,7 +64,7 @@ public class Notes extends AppCompatActivity implements NavigationView.OnNavigat
         setSupportActionBar(toolbar);
 
 
-        timePicker = (TimePicker) findViewById(R.id.timepicker);
+
         notes_Btn = (Button) findViewById(R.id.notes_btn);
         notes_Edit = (EditText) findViewById(R.id.notes_edit);
 
