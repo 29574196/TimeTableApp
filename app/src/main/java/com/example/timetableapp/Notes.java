@@ -97,7 +97,7 @@ public class Notes extends AppCompatActivity implements NavigationView.OnNavigat
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_dashboard, R.id.nav_notes
+                R.id.nav_dashboard, R.id.nav_notes,R.id.nav_appointment,R.id.nav_module
                 ,R.id.nav_mon,R.id.nav_tue,R.id.nav_wes,R.id.nav_thu,R.id.nav_fri)
                 .setDrawerLayout(drawer)
                 .build();
@@ -137,6 +137,12 @@ public class Notes extends AppCompatActivity implements NavigationView.OnNavigat
                 Intent mod = new Intent(Notes.this,Module.class);
                 mod.putExtra("student",student);
                 startActivity(mod);
+                finish();
+                break;
+
+            case R.id.nav_appointment:
+                Intent app = new Intent(Notes.this,Appointment.class);
+                startActivity(app);
                 finish();
                 break;
 

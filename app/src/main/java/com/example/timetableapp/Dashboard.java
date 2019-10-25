@@ -59,7 +59,7 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_dashboard, R.id.nav_notes,R.id.nav_module
-                ,R.id.nav_mon,R.id.nav_tue,R.id.nav_wes,R.id.nav_thu,R.id.nav_fri)
+                ,R.id.nav_mon,R.id.nav_tue,R.id.nav_appointment,R.id.nav_wes,R.id.nav_thu,R.id.nav_fri)
                 .setDrawerLayout(drawer)
                 .build();
         student = getIntent().getStringExtra("student");
@@ -118,10 +118,18 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 startActivity(mod);
                 finish();
                 break;
+
             case R.id.nav_notes:
                 Intent j = new Intent(Dashboard.this,Notes.class);
                 j.putExtra("student",student);
                 startActivity(j);
+                finish();
+                break;
+
+            case R.id.nav_appointment:
+                Intent app = new Intent(
+                        Dashboard.this,Appointment.class);
+                startActivity(app);
                 finish();
                 break;
         }
