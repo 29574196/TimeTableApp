@@ -4,11 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    tools:context=".Notes"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-
-    >
+    tools:context=".Appointment"
+    tools:showIn="@layout/app_bar_front_page">
 
     <LinearLayout
         android:id="@+id/linear1"
@@ -23,12 +21,12 @@
             android:layout_below="@+id/linear1"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="21dp"
-            android:text="Add Notes:"
+            android:text="Add Appointment:"
             android:textSize="24sp"
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/notes_edit"
+            android:id="@+id/appoint_edit"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:ems="10"
@@ -36,7 +34,7 @@
             android:inputType="text" />
 
         <Button
-            android:id="@+id/notes_btn"
+            android:id="@+id/appoint_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/button_bg"
@@ -53,11 +51,11 @@
             <TimePicker
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/timepicker"/>
+                android:id="@+id/timepickerapp"/>
 
             <Button
 
-                android:id="@+id/notification_btn"
+                android:id="@+id/appnotification_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_bg"
@@ -71,5 +69,6 @@
 
 
     </LinearLayout>
+
 
 </RelativeLayout>

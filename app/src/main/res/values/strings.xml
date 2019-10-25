@@ -25,6 +25,7 @@
     <string name="title_activity_thursday_nav">ThursdayNav</string>
     <string name="title_activity_friday_nav">FridayNav</string>
     <string name="title_activity_module">Module</string>
+    <string name="title_activity_appointment">Appointment</string>
 
 
 </resources>

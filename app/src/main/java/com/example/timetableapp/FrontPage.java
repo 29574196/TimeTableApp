@@ -109,7 +109,7 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_dashboard, R.id.nav_notes,
-                R.id.nav_module, R.id.nav_share)
+                R.id.nav_module, R.id.nav_share,R.id.nav_appointment)
                 .setDrawerLayout(drawer)
                 .build();
 
@@ -390,6 +390,12 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
             case R.id.nav_notes:
                 Intent j = new Intent(FrontPage.this,Notes.class);
                 startActivity(j);
+                finish();
+                break;
+
+            case R.id.nav_appointment:
+                Intent a = new Intent(FrontPage.this,Appointment.class);
+                startActivity(a);
                 finish();
                 break;
 

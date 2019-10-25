@@ -17,6 +17,11 @@
             android:id="@+id/nav_module"
             android:icon="@drawable/ic_module"
             android:title="Add Module" />
+
+        <item
+            android:id="@+id/nav_appointment"
+            android:icon="@drawable/ic_event"
+            android:title="Appointment"/>
     </group>
 
     <item android:title="Days">
