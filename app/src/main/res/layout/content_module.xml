@@ -25,7 +25,7 @@
             android:layout_below="@+id/linear1"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="21dp"
-            android:text="Add Modules:"/>
+            android:text="Modules Code:"/>
 
         <EditText
             android:id="@+id/mod_edit"
@@ -39,9 +39,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/mod_btn"
-            android:text="Submit"
+            android:text="ADD"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginBottom="45dp"
             android:background="@drawable/button_bg"/>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/mod_remove_btn"
+            android:text="REMOVE"
+            android:layout_marginBottom="45dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="@drawable/button_bg"/>
 
     </LinearLayout>
 

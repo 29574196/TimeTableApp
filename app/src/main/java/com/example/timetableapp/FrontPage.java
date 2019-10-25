@@ -64,6 +64,7 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
     private Toolbar toolbar =null;
     private DrawerLayout drawer;
     private List<ClassModel> classList;
+    private String student;
 
     private String [][] timeTableArr;
 
@@ -113,6 +114,9 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
                 .setDrawerLayout(drawer)
                 .build();
 
+        //getting student num from login screeen
+        student = getIntent().getStringExtra("student");
+        //new client builder and altered to convert json
         //********************************************************
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl("http://196.252.252.110:3000/")
@@ -127,7 +131,7 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
 
     public void getClasses()
     {
-        Call<List<ClassModel>> call = myAPI.getClassInfo("12121212");
+        Call<List<ClassModel>> call = myAPI.getClassInfo(student);
 
         //Toast.makeText(FrontPage.this, "Uhm : hey" , Toast.LENGTH_SHORT).show();
 
@@ -249,6 +253,25 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
                         break;
 
                 }
+            }else if(cm.getTime_slot().equals("6")){
+                switch (cm.getDay_code().toUpperCase()) {
+                    case "MON":
+                        timeTableArr[6][1] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+                    case "TUES":
+                        timeTableArr[6][2] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+                    case "WED":
+                        timeTableArr[6][3] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+                    case "THURS":
+                        timeTableArr[6][4] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+                    case "FRI":
+                        timeTableArr[6][5] = cm.getModule_code() +"\n"+cm.getBuilding()+"\n"+cm.getRoom();
+                        break;
+
+                }
             }
         }
 
@@ -300,12 +323,12 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
             {
                 TextView tempCol = new TextView(this);
                 tempCol.setText(timeTableArr[r][c]);
-                if(r%2 == 0)
+                if(r%2 == 0||c % 2 == 0)
                 {
                     tempCol.setBackgroundColor(Color.LTGRAY);
                 }
                 if (c==0||r==0) {
-                    tempCol.setTextSize(15);
+                    tempCol.setTextSize(18);
                 }
                 row.addView(tempCol,l);
             }
@@ -369,18 +392,21 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
 
             case R.id.nav_notes:
                 Intent j = new Intent(FrontPage.this,Notes.class);
+                j.putExtra("student",student);
                 startActivity(j);
                 finish();
                 break;
 
             case R.id.nav_appointment:
                 Intent a = new Intent(FrontPage.this,Appointment.class);
+                a.putExtra("student",student);
                 startActivity(a);
                 finish();
                 break;
 
             case R.id.nav_module:
                 Intent mod = new Intent(FrontPage.this,Module.class);
+                mod.putExtra("student",student);
                 startActivity(mod);
                 finish();
                 break;
@@ -388,24 +414,28 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
 
             case R.id.nav_mon:
                 Intent mon = new Intent(FrontPage.this,MondayNav.class);
+                mon.putExtra("student",student);
                 startActivity(mon);
                 finish();
                 break;
 
             case R.id.nav_tue:
                 Intent tue = new Intent(FrontPage.this,TuesdayNav.class);
+                tue.putExtra("student",student);
                 startActivity(tue);
                 finish();
                 break;
 
             case R.id.nav_wes:
                 Intent wes = new Intent(FrontPage.this,WednesdayNav.class);
+                wes.putExtra("student",student);
                 startActivity(wes);
                 finish();
                 break;
 
             case R.id.nav_thu:
                 Intent thu = new Intent(FrontPage.this,ThursdayNav.class);
+                thu.putExtra("student",student);
                 startActivity(thu);
                 finish();
                 break;
@@ -413,6 +443,7 @@ public class FrontPage extends AppCompatActivity implements NavigationView.OnNav
 
             case R.id.nav_fri:
                 Intent fri = new Intent(FrontPage.this,FridayNav.class);
+                fri.putExtra("student",student);
                 startActivity(fri);
                 finish();
                 break;

@@ -3,6 +3,8 @@ package com.example.timetableapp;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.timetableapp.Retrofit.INodeJS;
+import com.example.timetableapp.Retrofit.RetrofitClient;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -18,6 +20,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.textfield.TextInputLayout;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -27,6 +30,13 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
+import retrofit2.Retrofit;
 
 public class Module extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -36,7 +46,12 @@ public class Module extends AppCompatActivity implements NavigationView.OnNaviga
     private Toolbar toolbar =null;
     private DrawerLayout drawer;
     private EditText module_Edit;
-    private Button mod_Btn;
+    private Button mod_Btn,mod_remove_Btn;
+    private String student;
+
+
+    INodeJS myAPI;
+    CompositeDisposable compositeDisposable = new CompositeDisposable();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +61,23 @@ public class Module extends AppCompatActivity implements NavigationView.OnNaviga
         setSupportActionBar(toolbar);
 
         mod_Btn = (Button) findViewById(R.id.mod_btn);
+        mod_remove_Btn = (Button) findViewById(R.id.mod_remove_btn);
         module_Edit = (EditText) findViewById(R.id.mod_edit);
 
+        //getting student number from prior activity
+        student = getIntent().getStringExtra("student");
+        //button to add module
         mod_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                module_Edit.getText().toString();
+                addMod(student,module_Edit.getText().toString());
+            }
+        });
+
+        mod_remove_Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deleteMod(student,module_Edit.getText().toString());
             }
         });
 
@@ -78,6 +104,51 @@ public class Module extends AppCompatActivity implements NavigationView.OnNaviga
                 .setDrawerLayout(drawer)
                 .build();
 
+        Retrofit retrofit = RetrofitClient.getInstance();
+        myAPI = retrofit.create(INodeJS.class);
+
+
+    }
+
+    //function that uses the api and retrieves response then checks and notifies user
+    public void addMod(String student,String mod)
+    {
+        compositeDisposable.add(myAPI.addModule(student,mod)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String s) throws Exception {
+                        if (s.equals("1"))//column name from database
+                        {
+                            Toast.makeText(Module.this, "Module added successfully", Toast.LENGTH_SHORT).show();
+                        } else if(s.equals("0")){
+                            Toast.makeText(Module.this, "module does not exist", Toast.LENGTH_SHORT).show();
+                        } else if (s.equals("2")){
+                            Toast.makeText(Module.this,"duplicate module",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                })
+        );
+    }
+    //function that uses api call and deletes user module
+    public void deleteMod(String student,String mod)
+    {
+        compositeDisposable.add(myAPI.deleteModule(student,mod)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String s) throws Exception {
+                        if (s.equals("1"))//column name from database
+                        {
+                            Toast.makeText(Module.this, "Module Deleted successfully", Toast.LENGTH_SHORT).show();
+                        } else if(s.equals("0")){
+                            Toast.makeText(Module.this, "module does not exist", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                })
+        );
     }
 
     @Override
@@ -120,6 +191,7 @@ public class Module extends AppCompatActivity implements NavigationView.OnNaviga
 
             case R.id.nav_dashboard:
                 Intent h = new Intent(Module.this,FrontPage.class);
+                h.putExtra("student",student);
                 startActivity(h);
                 finish();
                 break;
@@ -127,6 +199,7 @@ public class Module extends AppCompatActivity implements NavigationView.OnNaviga
 
             case R.id.nav_module:
                 Intent mod = new Intent(Module.this,Module.class);
+                mod.putExtra("student",student);
                 startActivity(mod);
                 finish();
                 break;
@@ -134,30 +207,35 @@ public class Module extends AppCompatActivity implements NavigationView.OnNaviga
 
             case R.id.nav_notes:
                 Intent j = new Intent(Module.this,Notes.class);
+                j.putExtra("student",student);
                 startActivity(j);
                 finish();
                 break;
 
             case R.id.nav_mon:
                 Intent mon = new Intent(Module.this,MondayNav.class);
+                mon.putExtra("student",student);
                 startActivity(mon);
                 finish();
                 break;
 
             case R.id.nav_tue:
                 Intent tue = new Intent(Module.this,TuesdayNav.class);
+                tue.putExtra("student",student);
                 startActivity(tue);
                 finish();
                 break;
 
             case R.id.nav_wes:
                 Intent wes = new Intent(Module.this,WednesdayNav.class);
+                wes.putExtra("student",student);
                 startActivity(wes);
                 finish();
                 break;
 
             case R.id.nav_thu:
                 Intent thu = new Intent(Module.this,ThursdayNav.class);
+                thu.putExtra("student",student);
                 startActivity(thu);
                 finish();
                 break;
@@ -165,6 +243,7 @@ public class Module extends AppCompatActivity implements NavigationView.OnNaviga
 
             case R.id.nav_fri:
                 Intent fri = new Intent(Module.this,FridayNav.class);
+                fri.putExtra("student",student);
                 startActivity(fri);
                 finish();
                 break;
