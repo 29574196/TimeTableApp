@@ -131,7 +131,7 @@ public class Appointment extends AppCompatActivity implements NavigationView.OnN
     private void setAlarm(long timeInMillis) {
 
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(this, MyAlarm.class);
+        Intent intent = new Intent("example.action.DISPLAY_NOTIFICATION");
 
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 100, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 

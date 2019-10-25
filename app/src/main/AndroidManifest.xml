@@ -14,10 +14,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".NotificationActivity"></activity>
         <activity
             android:name=".Appointment"
             android:label="@string/title_activity_appointment"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Module"
             android:label="@string/title_activity_module"
@@ -78,7 +79,11 @@
         <receiver
             android:name=".MyAlarm"
             android:enabled="true"
-            android:exported="true" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="example.action.DISPLAY_NOTIFICATION" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
