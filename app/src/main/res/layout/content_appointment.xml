@@ -30,8 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:ems="10"
-            android:hint="App
-            ointment: "
+            android:hint="Appointment: "
             android:inputType="text" />
 
         <Button

@@ -34,6 +34,16 @@ public class MyAlarm extends BroadcastReceiver {
 
         MediaPlayer mediaPlayer = MediaPlayer.create(context, Settings.System.DEFAULT_RINGTONE_URI);
         mediaPlayer.start();
+        /*
+        int count =0;
+
+        for(count =0;count <= 1000;count++)
+        {
+            if(count==1000)
+            {
+                mediaPlayer.stop();
+            }
+        }*/
 
     }
 }
