@@ -37,4 +37,11 @@ public interface INodeJS {
                 @Field("add_module") String module
                 );
 
+        @POST("deleteModule")
+        @FormUrlEncoded
+        Observable <String> deleteModule(
+                @Field("add_student") String student,
+                @Field("add_module") String module
+        );
+
 }

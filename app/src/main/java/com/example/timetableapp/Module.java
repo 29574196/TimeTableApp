@@ -46,7 +46,7 @@ public class Module extends AppCompatActivity implements NavigationView.OnNaviga
     private Toolbar toolbar =null;
     private DrawerLayout drawer;
     private EditText module_Edit;
-    private Button mod_Btn;
+    private Button mod_Btn,mod_remove_Btn;
     private String student;
 
 
@@ -61,6 +61,7 @@ public class Module extends AppCompatActivity implements NavigationView.OnNaviga
         setSupportActionBar(toolbar);
 
         mod_Btn = (Button) findViewById(R.id.mod_btn);
+        mod_remove_Btn = (Button) findViewById(R.id.mod_remove_btn);
         module_Edit = (EditText) findViewById(R.id.mod_edit);
 
         //getting student number from prior activity
@@ -70,6 +71,13 @@ public class Module extends AppCompatActivity implements NavigationView.OnNaviga
             @Override
             public void onClick(View v) {
                 addMod(student,module_Edit.getText().toString());
+            }
+        });
+
+        mod_remove_Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deleteMod(student,module_Edit.getText().toString());
             }
         });
 
@@ -115,9 +123,28 @@ public class Module extends AppCompatActivity implements NavigationView.OnNaviga
                         {
                             Toast.makeText(Module.this, "Module added successfully", Toast.LENGTH_SHORT).show();
                         } else if(s.equals("0")){
-                            Toast.makeText(Module.this, "module does not exit", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Module.this, "module does not exist", Toast.LENGTH_SHORT).show();
                         } else if (s.equals("2")){
                             Toast.makeText(Module.this,"duplicate module",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                })
+        );
+    }
+    //function that uses api call and deletes user module
+    public void deleteMod(String student,String mod)
+    {
+        compositeDisposable.add(myAPI.deleteModule(student,mod)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String s) throws Exception {
+                        if (s.equals("1"))//column name from database
+                        {
+                            Toast.makeText(Module.this, "Module Deleted successfully", Toast.LENGTH_SHORT).show();
+                        } else if(s.equals("0")){
+                            Toast.makeText(Module.this, "module does not exist", Toast.LENGTH_SHORT).show();
                         }
                     }
                 })
