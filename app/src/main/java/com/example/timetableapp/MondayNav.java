@@ -56,6 +56,7 @@ public class MondayNav extends AppCompatActivity implements NavigationView.OnNav
 
     private String [][] timeTableArr;
     private List<ClassModel> classList;
+    private String student;
 
     INodeJS myAPI;
     CompositeDisposable compositeDisposable = new CompositeDisposable();
@@ -111,7 +112,9 @@ public class MondayNav extends AppCompatActivity implements NavigationView.OnNav
         Retrofit retrofit = builder.build();
         myAPI = retrofit.create(INodeJS.class);
         //********************************************************
+        student = getIntent().getStringExtra("student");
         getClasses();
+
 
     }
 
@@ -295,7 +298,7 @@ public class MondayNav extends AppCompatActivity implements NavigationView.OnNav
 
     public void getClasses()
     {
-        Call<List<ClassModel>> call = myAPI.getClassInfo("12121212");
+        Call<List<ClassModel>> call = myAPI.getClassInfo(student);
 
         //Toast.makeText(FrontPage.this, "Uhm : hey" , Toast.LENGTH_SHORT).show();
 
@@ -356,6 +359,7 @@ public class MondayNav extends AppCompatActivity implements NavigationView.OnNav
 
             case R.id.nav_dashboard:
                 Intent h = new Intent(MondayNav.this,FrontPage.class);
+                h.putExtra("student",student);
                 startActivity(h);
                 finish();
                 break;
@@ -363,42 +367,49 @@ public class MondayNav extends AppCompatActivity implements NavigationView.OnNav
 
             case R.id.nav_notes:
                 Intent j = new Intent(MondayNav.this,Notes.class);
+                j.putExtra("student",student);
                 startActivity(j);
                 finish();
                 break;
 
             case R.id.nav_module:
                 Intent mod = new Intent(MondayNav.this,Module.class);
+                mod.putExtra("student",student);
                 startActivity(mod);
                 finish();
                 break;
 
             case R.id.nav_appointment:
                 Intent app = new Intent(MondayNav.this,Appointment.class);
+                app.putExtra("student",student);
                 startActivity(app);
                 finish();
                 break;
 
             case R.id.nav_mon:
                 Intent mon = new Intent(MondayNav.this,MondayNav.class);
+                mon.putExtra("student",student);
                 startActivity(mon);
                 finish();
                 break;
 
             case R.id.nav_tue:
                 Intent tue = new Intent(MondayNav.this,TuesdayNav.class);
+                tue.putExtra("student",student);
                 startActivity(tue);
                 finish();
                 break;
 
             case R.id.nav_wes:
                 Intent wes = new Intent(MondayNav.this,WednesdayNav.class);
+                wes.putExtra("student",student);
                 startActivity(wes);
                 finish();
                 break;
 
             case R.id.nav_thu:
                 Intent thu = new Intent(MondayNav.this,ThursdayNav.class);
+                thu.putExtra("student",student);
                 startActivity(thu);
                 finish();
                 break;
@@ -406,6 +417,7 @@ public class MondayNav extends AppCompatActivity implements NavigationView.OnNav
 
             case R.id.nav_fri:
                 Intent fri = new Intent(MondayNav.this,FridayNav.class);
+                fri.putExtra("student",student);
                 startActivity(fri);
                 finish();
                 break;

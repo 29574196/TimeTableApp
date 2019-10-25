@@ -51,7 +51,7 @@ public class Notes extends AppCompatActivity implements NavigationView.OnNavigat
     private EditText notes_Edit;
     private Button notes_Btn;
     private Button notification_Btn;
-    private NotificationManager notificationManager;
+
 
     private String student;
 
@@ -139,9 +139,9 @@ public class Notes extends AppCompatActivity implements NavigationView.OnNavigat
                 startActivity(mod);
                 finish();
                 break;
-
             case R.id.nav_appointment:
                 Intent app = new Intent(Notes.this,Appointment.class);
+                app.putExtra("student",student);
                 startActivity(app);
                 finish();
                 break;

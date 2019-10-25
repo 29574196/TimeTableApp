@@ -132,6 +132,39 @@ public class Dashboard extends AppCompatActivity implements NavigationView.OnNav
                 startActivity(app);
                 finish();
                 break;
+
+            case R.id.nav_mon:
+                Intent mon = new Intent(Dashboard.this,MondayNav.class);
+                startActivity(mon);
+                finish();
+                break;
+
+            case R.id.nav_tue:
+                Intent tue = new Intent(Dashboard.this,TuesdayNav.class);
+                startActivity(tue);
+                finish();
+                break;
+
+            case R.id.nav_wes:
+                Intent wes = new Intent(Dashboard.this,WednesdayNav.class);
+                startActivity(wes);
+                finish();
+                break;
+
+            case R.id.nav_thu:
+                Intent thu = new Intent(Dashboard.this,ThursdayNav.class);
+                startActivity(thu);
+                finish();
+                break;
+
+
+            case R.id.nav_fri:
+                Intent fri = new Intent(Dashboard.this,FridayNav.class);
+                startActivity(fri);
+                finish();
+                break;
+
+
         }
 
 
